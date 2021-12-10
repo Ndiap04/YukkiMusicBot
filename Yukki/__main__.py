@@ -119,11 +119,13 @@ async def initiate_bot():
     console.print(f"\n[red]Stopping Bot")
 
 
-home_text_pm = f"""Hello ,
-My name is {BOT_NAME}.
-I'm Telegram Voice Chat Audio with some useful features.
+home_text_pm = f"""💞 Selamat datang {message.from_user.mention()} !
 
-All commands can be used with: / """
+🎊 [Sabrina Music](https://t.me/SabrinaMusicRobot) memungkinkan  Anda ke  memutar musik  pada  grup  melalui fitur video  telegram yang baru  Fitur!
+
+📝 **Cari tahu**  Semua perintah  bot  dan bagaimana mereka bekerja dengan mengklik tombol »  Command!
+
+**Powered By** : [SuksesMakmur](https://t.me/SuksesMakmur)"""
 
 
 @app.on_message(filters.command("help") & filters.private)
@@ -163,7 +165,7 @@ async def start_command(_, message):
                 reply_markup=keyboard,
             )
         if name[0] == "i":
-            m = await message.reply_text("🔎 Fetching Info!")
+            m = await message.reply_text("🔎 Mengambil Info!")
             query = (str(name)).replace("info_", "", 1)
             query = f"https://www.youtube.com/watch?v={query}"
             results = VideosSearch(query, limit=1)
@@ -177,7 +179,7 @@ async def start_command(_, message):
                 link = result["link"]
                 published = result["publishedTime"]
             searched_text = f"""
-🔍__**Video Track Information**__
+🔍**Video Track Information**
 
 ❇️**Title:** {title}
 
@@ -186,21 +188,12 @@ async def start_command(_, message):
 ⏰**Published Time:** {published}
 🎥**Channel Name:** {channel}
 📎**Channel Link:** [Visit From Here]({channellink})
-🔗**Video Link:** [Link]({link})
 
-⚡️ __Searched Powered By {BOT_NAME}t__"""
+**Powered By** : {BOT_NAME}"""
             key = InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(
-                            text="🎥 Watch Youtube Video", url=f"{link}"
-                        ),
-                        InlineKeyboardButton(
-                            text="🔄 Close", callback_data="close"
-                        ),
-                    ],
-                ]
-            )
+            [[InlineKeyboardButton(text="✖️ Close", callback_data="close")]]
+        ),
+    )
             await m.delete()
             return await app.send_photo(
                 message.chat.id,
@@ -220,11 +213,8 @@ async def help_parser(name, keyboard=None):
     if not keyboard:
         keyboard = InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "help"))
     return (
-        """Hello {first_name},
-
-Click on the buttons for more information.
-
-All commands can be used with: /
+        """**Hallo** {first_name} !
+`Silakan Lihat Perintah Apa Saja Yang Dapat Digunakan`!
 """.format(
             first_name=name
         ),
@@ -256,7 +246,7 @@ All commands can be used with: /
         module = mod_match.group(1)
         text = (
             "{} **{}**:\n".format(
-                "Here is the help for", HELPABLE[module].__MODULE__
+                "Berikut adalah bantuan untuk", HELPABLE[module].__MODULE__
             )
             + HELPABLE[module].__HELP__
         )
