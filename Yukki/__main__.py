@@ -191,9 +191,17 @@ async def start_command(_, message):
 
 **Powered By** : {BOT_NAME}"""
             key = InlineKeyboardMarkup(
-            [[InlineKeyboardButton(text="✖️ Close", callback_data="close")]]
-        ),
-    )
+                [
+                    [
+                        InlineKeyboardButton(
+                            text="🎥 Video", url=f"{link}"
+                        ),
+                        InlineKeyboardButton(
+                            text="✖️ Hapus", callback_data="close"
+                        ),
+                    ],
+                ]
+            )
             await m.delete()
             return await app.send_photo(
                 message.chat.id,
