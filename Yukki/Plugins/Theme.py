@@ -32,12 +32,11 @@ themes2 = [
 __MODULE__ = "Theme"
 __HELP__ = """
 
+  • **Perintah** : /settheme
+  • **Function** : Tetapkan tema untuk gambar mini.
 
-/settheme
-- Set a theme for thumbnails.
-
-/theme
-- Check Theme for your chat.
+  • **Perintah** : /theme
+  • **Function** : Periksa Tema untuk obrolan Anda.
 """
 
 
