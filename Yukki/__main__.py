@@ -244,17 +244,14 @@ async def help_button(client, query):
     next_match = re.match(r"help_next\((.+?)\)", query.data)
     back_match = re.match(r"help_back", query.data)
     create_match = re.match(r"help_create", query.data)
-    top_text = f"""Hello {query.from_user.first_name},
-
-Click on the buttons for more information.
-
-All commands can be used with: /
+    top_text = f"""Hello {query.from_user.first_name} !
+`Silakan Lihat Perintah Apa Saja Yang Dapat Digunakan`!
  """
     if mod_match:
         module = mod_match.group(1)
         text = (
             "{} **{}**:\n".format(
-                "Berikut adalah bantuan untuk", HELPABLE[module].__MODULE__
+                "✘ **Plugin** :", HELPABLE[module].__MODULE__
             )
             + HELPABLE[module].__HELP__
         )
@@ -262,10 +259,10 @@ All commands can be used with: /
             [
                 [
                     InlineKeyboardButton(
-                        text="↪️ Back", callback_data="help_back"
+                        text="Back", callback_data="help_back"
                     ),
                     InlineKeyboardButton(
-                        text="🔄 Close", callback_data="close"
+                        text="Close", callback_data="close"
                     ),
                 ],
             ]
