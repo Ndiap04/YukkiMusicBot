@@ -110,7 +110,7 @@ async def playlist(_, message):
     await message.reply_photo(
         photo=thumb,
         caption=(
-            f"**{MUSIC_BOT_NAME}'s Playlist Feature**\n\nSelect The Playlist, You want to **check!**"
+            f"**{MUSIC_BOT_NAME} Fitur Daftar Putar**\n\nPilih Daftar Putar, Anda ingin **Memeriksa!**"
         ),
         reply_markup=InlineKeyboardMarkup(buttons),
     )
@@ -152,14 +152,14 @@ options = [
 ]
 
 options_Genre = [
+    "Dangdut",
+    "Reggae",
+    "Indo Pop",
     "Rock",
-    "Sad",
-    "Party",
-    "Lofi",
-    "Bollywood",
-    "Hollywood",
-    "Punjabi",
-    "Others",
+    "HipHop",
+    "Al-Qur'an",
+    "DjLokal",
+    "Kristen",
 ]
 
 
