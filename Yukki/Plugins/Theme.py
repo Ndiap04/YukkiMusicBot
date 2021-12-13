@@ -54,7 +54,7 @@ async def settheme(_, message):
         "theme": theme,
     }
     await save_theme(message.chat.id, "theme", note)
-    await message.reply_text(f"Changed thumbnail theme to {theme}")
+    await message.reply_text(f"Mengubah tema gambar mini menjadi {theme}")
 
 
 @app.on_message(filters.command("theme"))
