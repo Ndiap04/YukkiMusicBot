@@ -39,7 +39,7 @@ async def play(_, message: Message):
         db_mem[message.chat.id] = {}
     if message.sender_chat:
         return await message.reply_text(
-            "You're an __Anonymous Admin__ in this Chat Group!\nRevert back to User Account From Admin Rights."
+            "Anda adalah __Admin Anonim__ di Grup Obrolan ini!\nKembalikan kembali ke Akun Pengguna Dari Hak Admin."
         )
     audio = (
         (message.reply_to_message.audio or message.reply_to_message.voice)
@@ -49,18 +49,18 @@ async def play(_, message: Message):
     url = get_url(message)
     if audio:
         mystic = await message.reply_text(
-            "🔄 Processing Audio... Please Wait!"
+            "🔄 Memproses Audio... Harap Tunggu!"
         )
 
         if audio.file_size > 157286400:
             return await mystic.edit_text(
-                "Audio File Size Should Be Less Than 150 mb"
+                "Ukuran File Audio Harus Kurang dari 150 mb"
             )
         duration_min = seconds_to_min(audio.duration)
         duration_sec = audio.duration
         if (audio.duration) > DURATION_LIMIT:
             return await mystic.edit_text(
-                f"**Duration Limit Exceeded**\n\n**Allowed Duration: **{DURATION_LIMIT_MIN} minute(s)\n**Received Duration:** {duration_min} minute(s)"
+                f"**Batas Durasi Terlampaui**\n\n**Durasi yang Diizinkan: **{DURATION_LIMIT_MIN} menit(s)\n**Durasi yang Diterima:** {duration_min} minute(s)"
             )
         file_name = (
             audio.file_unique_id
@@ -87,7 +87,7 @@ async def play(_, message: Message):
             mystic,
         )
     elif url:
-        mystic = await message.reply_text("🔄 Processing URL... Please Wait!")
+        mystic = await message.reply_text("🔄 Memproses URL... Harap Tunggu!")
         query = message.text.split(None, 1)[1]
         (
             title,
@@ -100,7 +100,7 @@ async def play(_, message: Message):
         buttons = url_markup2(videoid, duration_min, message.from_user.id)
         return await message.reply_photo(
             photo=thumb,
-            caption=f"📎Title: **{title}\n\n⏳Duration:** {duration_min} Mins\n\n__[Get Additional Information About Video](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"📝 Judul:: [{title}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n\n⏳**Durasi:** {duration_min} Mins",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     else:
@@ -111,12 +111,12 @@ async def play(_, message: Message):
             await message.reply_photo(
                 photo="Utils/Playlist.jpg",
                 caption=(
-                    "**Usage:** /play [Music Name or Youtube Link or Reply to Audio]\n\nIf you want to play Playlists! Select the one from Below."
+                    "✖️ **Perintah Yang Anda Masukan Salah!**\n\n✔️ /play [Nama Musik atau Tautan Youtube atau Balas Audio]\n\nJika Anda ingin memainkan Daftar Putar! Pilih salah satu dari Bawah."
                 ),
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
             return
-        mystic = await message.reply_text("🔍 **Searching**...")
+        mystic = await message.reply_text("🔍 **Mencari**...")
         query = message.text.split(None, 1)[1]
         (
             title,
@@ -131,7 +131,7 @@ async def play(_, message: Message):
         )
         return await message.reply_photo(
             photo=thumb,
-            caption=f"📎Title: **{title}\n\n⏳Duration:** {duration_min} Mins\n\n__[Get Additional Information About Video](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"📝 Judul:: [{title}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n\n⏳**Durasi:** {duration_min} Mins",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
 
