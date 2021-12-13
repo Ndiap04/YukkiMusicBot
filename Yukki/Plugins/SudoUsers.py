@@ -18,9 +18,8 @@ from Yukki.Database import (add_gban_user, add_off, add_on, add_sudo,
 __MODULE__ = "SudoUsers"
 __HELP__ = """
 
-
-/sudolist 
-    Check the sudo user list of Bot. 
+  •  **Perintah** : /sudolist 
+  •  **Function** : Periksa daftar pengguna Sudo Bot. 
 
 
 **Note:**
