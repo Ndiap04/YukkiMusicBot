@@ -22,27 +22,28 @@ __HELP__ = """
   •  **Function** : Periksa daftar pengguna Sudo Bot. 
 
 
-**Note:**
-Only for Sudo Users. 
+**Catatan:**
+Hanya untuk Pengguna Sudo. 
 
 
-/addsudo [Username or Reply to a user]
-- To Add A User In Bot's Sudo Users.
+  •  **Perintah** : /addsudo [Nama pengguna atau Balas ke pengguna] 
+  •  **Function** : Untuk Menambahkan Pengguna Di Pengguna Sudo Bot.
 
-/delsudo [Username or Reply to a user]
-- To Remove A User from Bot's Sudo Users.
+  •  **Perintah** : /delsudo [Username or Reply to a user] 
+  •  **Function** : Untuk Menghapus Pengguna dari Pengguna Sudo Bot.
 
-/restart 
-- Restart Bot [All downloads, cache, raw files will be cleared too]. 
 
-/maintenance [enable / disable]
-- When enabled Bot goes under maintenance mode. No one can play Music now!
+  •  **Perintah** : /restart 
+  •  **Function** : Restart Bot [Semua unduhan, cache, file mentah akan dihapus juga]. 
 
-/update 
-- Fetch Updates from Server.
+  •  **Perintah** : /maintenance [enable / disable]
+  •  **Function** : Saat diaktifkan, Bot berada dalam mode pemeliharaan. Tidak ada yang bisa memutar Musik sekarang!
 
-/clean
-- Clean Temp Files and Logs.
+  •  **Perintah** : /update 
+  •  **Function** : Ambil Pembaruan dari Server.
+
+  •  **Perintah** : /clean
+  •  **Function** : Bersihkan File dan Log Temp.
 """
 # Add Sudo Users!
 
