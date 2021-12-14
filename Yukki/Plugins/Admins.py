@@ -77,7 +77,7 @@ async def admins(_, message: Message):
         await music_off(chat_id)
         await Yukki.pytgcalls.pause_stream(chat_id)
         await message.reply_text(
-            f"🎧 Voicechat Paused by {message.from_user.mention}!"
+            f"⏸ **Music Telah Dipause Oleh** {message.from_user.mention}!"
         )
     if message.command[0][1] == "e":
         if await is_music_playing(message.chat.id):
@@ -85,7 +85,7 @@ async def admins(_, message: Message):
         await music_on(chat_id)
         await Yukki.pytgcalls.resume_stream(message.chat.id)
         await message.reply_text(
-            f"🎧 Voicechat Resumed by {message.from_user.mention}!"
+            f"▶️ **Music Telah Dilanjutkan Oleh** {message.from_user.mention}!"
         )
     if message.command[0][1] == "t" or message.command[0][1] == "n":
         try:
@@ -95,14 +95,14 @@ async def admins(_, message: Message):
         await remove_active_chat(chat_id)
         await Yukki.pytgcalls.leave_group_call(message.chat.id)
         await message.reply_text(
-            f"🎧 Voicechat End/Stopped by {message.from_user.mention}!"
+            f"⏹ **Music Telah Dihentikan Oleh** {message.from_user.mention}!"
         )
     if message.command[0][1] == "k":
         Queues.task_done(chat_id)
         if Queues.is_empty(chat_id):
             await remove_active_chat(chat_id)
             await message.reply_text(
-                "No more music in __Queue__ \n\nLeaving Voice Chat"
+                "✖️ **Tidak Ada Antrian Music Disini**!\n\n<**Saya Menghentikan Music**>"
             )
             await Yukki.pytgcalls.leave_group_call(message.chat.id)
             return
@@ -115,7 +115,7 @@ async def admins(_, message: Message):
             aud = 0
             if str(finxx) != "raw":
                 mystic = await message.reply_text(
-                    f"**{MUSIC_BOT_NAME} Playlist Function**\n\n__Downloading Next Music From Playlist....__"
+                    f"**{MUSIC_BOT_NAME} Fungsi Daftar Putar**\n\n__Mengunduh Musik Berikutnya Dari Daftar Putar....__"
                 )
                 (
                     title,
