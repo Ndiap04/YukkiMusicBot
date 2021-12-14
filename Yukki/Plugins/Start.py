@@ -47,25 +47,25 @@ async def welcome(_, message: Message):
         await add_served_chat(chat_id)
     if chat_id in await blacklisted_chats():
         await message.reply_text(
-            f"Hushh, Your chat group[{message.chat.title}] has been blacklisted!\n\nAsk any Sudo User to whitelist your chat"
+            f"Hushh, grup obrolan Anda[{message.chat.title}] telah masuk daftar hitam!\n\nMinta Pengguna Sudo untuk memasukkan obrolan Anda ke daftar putih!"
         )
         await app.leave_chat(chat_id)
     for member in message.new_chat_members:
         try:
             if member.id in OWNER_ID:
                 return await message.reply_text(
-                    f"{MUSIC_BOT_NAME}'s Owner[{member.mention}] has just joined your chat."
+                    f"{MUSIC_BOT_NAME} Pemilik [{member.mention}] baru saja bergabung dengan cha Anda!"
                 )
             if member.id in SUDOERS:
                 return await message.reply_text(
-                    f"A member of {MUSIC_BOT_NAME}'s Sudo User[{member.mention}] has just joined your chat."
+                    f"Anggota Dari {MUSIC_BOT_NAME} , Sudo Pengguna [{member.mention}] baru saja bergabung dengan obrolan Anda!"
                 )
             if member.id == ASSID:
                 await remove_active_chat(chat_id)
             if member.id == BOT_ID:
                 out = start_pannel()
                 await message.reply_text(
-                    f"Welcome To {MUSIC_BOT_NAME}\n\nPromote me as administrator in your group otherwise I will not function properly.",
+                    f"**Terimakasih Telah Menambahkan {MUSIC_BOT_NAME}**!\n\n✔️__Promosikan saya sebagai administrator di grup Anda jika tidak, saya tidak akan berfungsi dengan baik!__",
                     reply_markup=InlineKeyboardMarkup(out[1]),
                 )
                 return
@@ -80,7 +80,7 @@ async def useradd(_, message: Message):
     await asyncio.gather(
         message.delete(),
         message.reply_text(
-            f"Thanks for having me in {message.chat.title}.\n{MUSIC_BOT_NAME} is alive.\n\nFor any assistance or help, checkout our support group and channel.",
+            f"**Terima Kasih Telah Memasukkan Saya Digrub {message.chat.title}**!\n`Silakan Lihat Perintah Apa Saja Yang Dapat Digunakan!`",
             reply_markup=InlineKeyboardMarkup(out[1]),
         ),
     )
@@ -91,7 +91,7 @@ async def okaybhai(_, CallbackQuery):
     await CallbackQuery.answer("Going Back ...")
     out = start_pannel()
     await CallbackQuery.edit_message_text(
-        text=f"Thanks for having me in {CallbackQuery.message.chat.title}.\n{MUSIC_BOT_NAME}is alive.\n\nFor any assistance or help, checkout our support group and channel.",
+        text=f"**Terima Kasih Telah Memasukkan Saya Digrub {CallbackQuery.message.chat.title}**!\n`Silakan Lihat Perintah Apa Saja Yang Dapat Digunakan!`",
         reply_markup=InlineKeyboardMarkup(out[1]),
     )
 
