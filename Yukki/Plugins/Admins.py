@@ -33,28 +33,27 @@ loop = asyncio.get_event_loop()
 __MODULE__ = "Voice Chat"
 __HELP__ = """
 
+  •  **Perintah** : /pause
+  •  **Function** : Jeda musik yang diputar di obrolan suara.
 
-/pause
-- Pause the playing music on voice chat.
+  •  **Perintah** : /resume
+  •  **Function** : Resume the paused music on voice chat.
 
-/resume
-- Resume the paused music on voice chat.
+  •  **Perintah** : /skip
+  •  **Function** : Skip the current playing music on voice chat
 
-/skip
-- Skip the current playing music on voice chat
+  •  **Perintah** : /end atau /stop
+  •  **Function** : Stop the playout.
 
-/end or /stop
-- Stop the playout.
-
-/queue
-- Check queue list.
+  •  **Perintah** : /queue
+  •  **Function** : Check queue list.
 
 
 **Note:**
-Only for Sudo Users
+Only for Sudo Users 
 
-/activevc
-- Check active voice chats on bot.
+  •  **Perintah** : /activevc
+  •  **Function** : Check active voice chats on bot.
 
 """
 
