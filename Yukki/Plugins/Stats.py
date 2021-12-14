@@ -26,9 +26,8 @@ from Yukki.Utilities.ping import get_readable_time
 __MODULE__ = "Stats"
 __HELP__ = """
 
-
-/stats 
-- Check the Stats of Bot.
+  •  **Perintah** : /stats 
+  •  **Function** : Check the Stats of Bot.
 - Gets the stat of MongoDb , Assistant, System etc
 """
 
@@ -88,7 +87,7 @@ async def stats_markup(_, CallbackQuery):
         smex = f"""
 [•]<u>**System Stats**</u>
 
-**Yukki Uptime:** {uptime}
+**Takanashi Uptime:** {uptime}
 **System Proc:** Online
 **Platform:** {sc}
 **Architecture:** {arch}
@@ -115,7 +114,7 @@ async def stats_markup(_, CallbackQuery):
 **Storage Left:** {free[:4]} GiB"""
         await CallbackQuery.edit_message_text(smex, reply_markup=stats3)
     if command == "bot_stats":
-        await CallbackQuery.answer("Getting Bot Stats...", show_alert=True)
+        await CallbackQuery.answer("Mendapatkan Statistik Bot...", show_alert=True)
         served_chats = []
         chats = await get_served_chats()
         for chat in chats:
@@ -140,7 +139,7 @@ async def stats_markup(_, CallbackQuery):
         await CallbackQuery.edit_message_text(smex, reply_markup=stats4)
     if command == "mongo_stats":
         await CallbackQuery.answer(
-            "Getting MongoDB Stats...", show_alert=True
+            "Mendapatkan Statistik MongoDB...", show_alert=True
         )
         db = pymongodb
         call = db.command("dbstats")
@@ -171,10 +170,10 @@ async def stats_markup(_, CallbackQuery):
         await CallbackQuery.edit_message_text(smex, reply_markup=stats5)
     if command == "assis_stats":
         await CallbackQuery.answer(
-            "Getting Assistant Stats...", show_alert=True
+            "Mendapatkan Statistik Asisten...", show_alert=True
         )
         await CallbackQuery.edit_message_text(
-            "Getting Assistant Stats.. Please Wait...", reply_markup=stats7
+            "Mendapatkan Statistik Asisten.. Harap Tunggu...", reply_markup=stats7
         )
         groups_ub = channels_ub = bots_ub = privates_ub = total_ub = 0
         async for i in userbot.iter_dialogs():
@@ -202,7 +201,7 @@ async def stats_markup(_, CallbackQuery):
         start = datetime.now()
         uptime = await bot_sys_stats()
         await CallbackQuery.answer(
-            "Getting General Stats...", show_alert=True
+            "Mendapatkan Statistik Umum...", show_alert=True
         )
         end = datetime.now()
         resp = (end - start).microseconds / 1000
