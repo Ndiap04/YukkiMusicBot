@@ -181,15 +181,13 @@ async def start_command(_, message):
             searched_text = f"""
 🔍**Video Track Information**
 
-❇️**Title:** {title}
-
-⏳**Duration:** {duration} Mins
+📝**Judul:** [{title}]({channellink})
+⏳**Durasi:** {duration} Mins
 👀**Views:** `{views}`
 ⏰**Published Time:** {published}
 🎥**Channel Name:** {channel}
-📎**Channel Link:** [Visit From Here]({channellink})
 
-**Powered By** : {BOT_NAME}"""
+**Powered By** : [SuksesMakmur](t.me/SuksesMakmur)"""
             key = InlineKeyboardMarkup(
                 [
                     [
@@ -251,7 +249,7 @@ async def help_button(client, query):
         module = mod_match.group(1)
         text = (
             "{} **{}**:\n".format(
-                "✘ **Plugin** :", HELPABLE[module].__MODULE__
+                "✘ **Plugin**", HELPABLE[module].__MODULE__
             )
             + HELPABLE[module].__HELP__
         )
