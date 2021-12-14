@@ -154,7 +154,7 @@ options = [
 options_Genre = [
     "Dangdut",
     "Reggae",
-    "Indo Pop",
+    "IndoPop",
     "Rock",
     "HipHop",
     "Al-Qur'an",
