@@ -12,7 +12,8 @@ from Yukki.Utilities.ping import get_readable_time
 __MODULE__ = "Ping"
 __HELP__ = """
 
-/ping - Check if Bot is alive or not.
+  •  **Perintah** : /ping 
+  •  **Function** : Periksa apakah Bot hidup atau tidak.
 """
 
 
@@ -33,7 +34,7 @@ Disk: {disk}%"""
 async def ping(_, message):
     start = datetime.now()
     response = await message.reply_photo(
-        photo="Utils/Query.jpg",
+        photo="Utils/rikka_cover.jpg",
         caption=">> Pong!",
     )
     uptime = await bot_sys_stats()
