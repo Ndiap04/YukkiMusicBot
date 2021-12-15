@@ -41,41 +41,41 @@ def play_genre_playlist(user_id, type, videoid):
         [
             InlineKeyboardButton(
                 text=f"Dangdut",
-                callback_data=f"play_playlist {user_id}|{type}|Bollywood",
+                callback_data=f"play_playlist {user_id}|{type}|Dangdut",
             ),
             InlineKeyboardButton(
                 text=f"Reggae",
-                callback_data=f"play_playlist {user_id}|{type}|Hollywood",
+                callback_data=f"play_playlist {user_id}|{type}|Reggae",
             ),
         ],
         [
             InlineKeyboardButton(
                 text=f"IndoPop",
-                callback_data=f"play_playlist {user_id}|{type}|Party",
+                callback_data=f"play_playlist {user_id}|{type}|IndoPop",
             ),
             InlineKeyboardButton(
                 text=f"Rock",
-                callback_data=f"play_playlist {user_id}|{type}|Lofi",
+                callback_data=f"play_playlist {user_id}|{type}|Rock",
             ),
         ],
         [
             InlineKeyboardButton(
                 text=f"HipHop",
-                callback_data=f"play_playlist {user_id}|{type}|Sad",
+                callback_data=f"play_playlist {user_id}|{type}|HipHop",
             ),
             InlineKeyboardButton(
                 text=f"Al-Qur'an",
-                callback_data=f"play_playlist {user_id}|{type}|Weeb",
+                callback_data=f"play_playlist {user_id}|{type}|Al-Qur'an",
             ),
         ],
         [
             InlineKeyboardButton(
                 text=f"DjLokal",
-                callback_data=f"play_playlist {user_id}|{type}|Punjabi",
+                callback_data=f"play_playlist {user_id}|{type}|DjLokal",
             ),
             InlineKeyboardButton(
                 text=f"Kristen",
-                callback_data=f"play_playlist {user_id}|{type}|Others",
+                callback_data=f"play_playlist {user_id}|{type}|Kristen",
             ),
         ],
         [
