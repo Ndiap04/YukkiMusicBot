@@ -15,28 +15,26 @@ from Yukki.Database import (approve_pmpermit, disapprove_pmpermit,
 __MODULE__ = "Assistant"
 __HELP__ = f"""
 
-**Note:**
-- Only for Sudo Users
+**Catatan:**
+- Hanya untuk Pengguna Sudo
 
+  •  **Perintah** : {ASSISTANT_PREFIX[0]}block [ Membalas Pesan Pengguna] 
+  •  **Function** : Memblokir Pengguna dari Akun Asisten.
 
+  •  **Perintah** : {ASSISTANT_PREFIX[0]}unblock [ Membalas Pesan Pengguna] 
+  •  **Function** : Buka blokir Pengguna dari Akun Asisten.
 
-{ASSISTANT_PREFIX[0]}block [ Reply to a User Message] 
-- Blocks the User from Assistant Account.
+  •  **Perintah** : {ASSISTANT_PREFIX[0]}approve [ Membalas Pesan Pengguna] 
+  •  **Function** : Menyetujui Pengguna untuk DM.
 
-{ASSISTANT_PREFIX[0]}unblock [ Reply to a User Message] 
-- Unblocks the User from Assistant Account.
+  •  **Perintah** : {ASSISTANT_PREFIX[0]}disapprove [ Membalas Pesan Pengguna] 
+  •  **Function** : Menolak Pengguna untuk DM.
 
-{ASSISTANT_PREFIX[0]}approve [ Reply to a User Message] 
-- Approves the User for DM.
+  •  **Perintah** : {ASSISTANT_PREFIX[0]}pfp [ Reply to a Photo] 
+  •  **Function** : Mengubah PFP akun Asisten.
 
-{ASSISTANT_PREFIX[0]}disapprove [ Reply to a User Message] 
-- Disapproves the User for DM.
-
-{ASSISTANT_PREFIX[0]}pfp [ Reply to a Photo] 
-- Changes Assistant account PFP.
-
-{ASSISTANT_PREFIX[0]}bio [Bio text] 
-- Changes Bio of Assistant Account.
+  •  **Perintah** : {ASSISTANT_PREFIX[0]}bio [Bio text] 
+  •  **Function** : Mengubah Bio Akun Asisten.
 
 """
 
