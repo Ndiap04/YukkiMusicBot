@@ -119,9 +119,9 @@ async def initiate_bot():
     console.print(f"\n[red]Stopping Bot")
 
 
-home_text_pm = f"""💞 Selamat datang Di**Sabrina Music**!
+home_text_pm = f"""💞 Selamat datang Di**Takanashi Rika**!
 
-🎊 [Sabrina Music](https://t.me/SabrinaMusicRobot) memungkinkan  Anda memutar musik  pada  grup  melalui fitur video telegram yang baru !
+🎊 [Takanashi Rika](https://t.me/Takanashi_RikkaBot) memungkinkan  Anda memutar musik  pada  grup  melalui fitur video telegram yang baru !
 
 📝 **Cari tahu**  Semua perintah  bot  dan bagaimana mereka bekerja dengan mengklik tombol »  Command!
 
