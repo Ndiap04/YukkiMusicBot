@@ -20,7 +20,7 @@ from Yukki.Database import (add_nonadmin_chat, add_served_chat,
 from Yukki.Decorators.admins import ActualAdminCB
 from Yukki.Decorators.permission import PermissionCheck
 from Yukki.Inline import (custommarkup, dashmarkup, setting_markup,
-                          start_pannel, usermarkup, volmarkup)
+                          start_pannel, usermarkup, volmarkup, welcome_pannel)
 from Yukki.Utilities.ping import get_readable_time
 
 welcome_group = 2
@@ -63,7 +63,7 @@ async def welcome(_, message: Message):
             if member.id == ASSID:
                 await remove_active_chat(chat_id)
             if member.id == BOT_ID:
-                out = start_pannel()
+                out = welcome_pannel()
                 await message.reply_text(
                     f"**Terimakasih Telah Menambahkan {MUSIC_BOT_NAME}**!\n\n✔️__Promosikan saya sebagai administrator di grup Anda jika tidak, saya tidak akan berfungsi dengan baik!__",
                     reply_markup=InlineKeyboardMarkup(out[1]),
@@ -73,7 +73,7 @@ async def welcome(_, message: Message):
             return
 
 
-@app.on_message(filters.command(["help", "start"]) & filters.group)
+@app.on_message(filters.command(["help"]) & filters.group)
 @PermissionCheck
 async def useradd(_, message: Message):
     out = start_pannel()
