@@ -42,7 +42,7 @@ def url_markup2(videoid, duration, user_id):
                 callback_data=f"Yukki {videoid}|{duration}|{user_id}",
             ),
             InlineKeyboardButton(
-                text="🗑 Close Search",
+                text="🗑 Hapus",
                 callback_data=f"forceclose {videoid}|{user_id}",
             ),
         ],
@@ -163,9 +163,9 @@ def secondary_markup(videoid, user_id):
         ],
         [
             InlineKeyboardButton(
-                text="🔗 Menu Lainnya", callback_data=f"other {videoid}|{user_id}"
+                text="🔗 Menu", callback_data=f"other {videoid}|{user_id}"
             ),
-            InlineKeyboardButton(text="🗑 Menutup Menu", callback_data=f"close"),
+            InlineKeyboardButton(text="🗑 Hapus", callback_data=f"close"),
         ],
     ]
     return buttons
@@ -190,9 +190,9 @@ def primary_markup(videoid, user_id, current_time, total_time):
         ],
         [
             InlineKeyboardButton(
-                text="🔗 Menu Lainnya", callback_data=f"other {videoid}|{user_id}"
+                text="🔗 Menu", callback_data=f"other {videoid}|{user_id}"
             ),
-            InlineKeyboardButton(text="🗑 Menutup Menu", callback_data=f"close"),
+            InlineKeyboardButton(text="🗑 Hapus", callback_data=f"close"),
         ],
     ]
     return buttons
@@ -214,9 +214,9 @@ def timer_markup(videoid, user_id, current_time, total_time):
         ],
         [
             InlineKeyboardButton(
-                text="🔗 Menu Lainnya", callback_data=f"other {videoid}|{user_id}"
+                text="🔗 Menu", callback_data=f"other {videoid}|{user_id}"
             ),
-            InlineKeyboardButton(text="🗑 Menutup Menu", callback_data=f"close"),
+            InlineKeyboardButton(text="🗑 Hapus", callback_data=f"close"),
         ],
     ]
     return buttons
@@ -239,7 +239,7 @@ def audio_markup(videoid, user_id, current_time, total_time):
             InlineKeyboardButton(text="⏭️", callback_data=f"skipcb"),
             InlineKeyboardButton(text="⏹️", callback_data=f"stopcb"),
         ],
-        [InlineKeyboardButton(text="🗑 Menutup Menu", callback_data=f"close")],
+        [InlineKeyboardButton(text="🗑 Hapus", callback_data=f"close")],
     ]
     return buttons
 
@@ -258,7 +258,7 @@ def audio_timer_markup_start(videoid, user_id, current_time, total_time):
             InlineKeyboardButton(text="⏭️", callback_data=f"skipcb"),
             InlineKeyboardButton(text="⏹️", callback_data=f"stopcb"),
         ],
-        [InlineKeyboardButton(text="🗑 Menutup Menu", callback_data=f"close")],
+        [InlineKeyboardButton(text="🗑 Hapus", callback_data=f"close")],
     ]
     return buttons
 
@@ -271,6 +271,6 @@ audio_markup2 = InlineKeyboardMarkup(
             InlineKeyboardButton(text="⏭️", callback_data=f"skipcb"),
             InlineKeyboardButton(text="⏹️", callback_data=f"stopcb"),
         ],
-        [InlineKeyboardButton("🗑 Menutup Menu", callback_data="close")],
+        [InlineKeyboardButton("🗑 Hapus", callback_data="close")],
     ]
 )
