@@ -107,7 +107,7 @@ async def song_right(_, CallbackQuery):
     what, type, query, user_id = callback_request.split("|")
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "Search Your Own Music. You're not allowed to use this button.",
+            "Cari Musik Anda Sendiri. Anda tidak diperbolehkan menggunakan tombol ini!",
             show_alert=True,
         )
     what = str(what)
