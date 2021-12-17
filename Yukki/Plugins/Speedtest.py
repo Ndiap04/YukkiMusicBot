@@ -10,8 +10,8 @@ from Yukki import BOT_ID, SUDOERS, app
 __MODULE__ = "Speedtest"
 __HELP__ = """
 
-/speedtest 
-- Check Server Latency and Speed.
+  •  **Perintah** : /speedtest 
+  •  **Function** : Periksa Latensi dan Kecepatan Server.
 
 """
 
