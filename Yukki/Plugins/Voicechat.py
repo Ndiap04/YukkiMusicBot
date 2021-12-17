@@ -62,7 +62,7 @@ async def timer_checkup_markup(_, CallbackQuery):
             dur_left = db_mem[CallbackQuery.message.chat.id]["left"]
             duration_min = db_mem[CallbackQuery.message.chat.id]["total"]
             return await CallbackQuery.answer(
-                f"Remaining {dur_left} out of {duration_min} Mins.",
+                f"Tersisa {dur_left} dari {duration_min} Mins.",
                 show_alert=True,
             )
         return await CallbackQuery.answer(f"Tidak bermain.", show_alert=True)
@@ -81,7 +81,7 @@ async def activevc(_, message: Message):
         duration_min = db_mem[message.chat.id]["total"]
         got_queue = get_queue.get(message.chat.id)
         if not got_queue:
-            await mystic.edit(f"Nothing in Queue")
+            await mystic.edit(f"Tidak ada dalam Antrian")
         fetched = []
         for get in got_queue:
             fetched.append(get)
