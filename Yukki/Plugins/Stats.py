@@ -76,7 +76,7 @@ Ping: `⚡{resp} ms`
 async def stats_markup(_, CallbackQuery):
     command = CallbackQuery.matches[0].group(1)
     if command == "sys_stats":
-        await CallbackQuery.answer("Getting System Stats...", show_alert=True)
+        await CallbackQuery.answer("Mendapatkan Statistik Sistem...", show_alert=True)
         sc = platform.system()
         arch = platform.machine()
         ram = (
@@ -97,7 +97,7 @@ async def stats_markup(_, CallbackQuery):
         await CallbackQuery.edit_message_text(smex, reply_markup=stats2)
     if command == "sto_stats":
         await CallbackQuery.answer(
-            "Getting Storage Stats...", show_alert=True
+            "Mendapatkan Statistik Penyimpanan...", show_alert=True
         )
         hdd = psutil.disk_usage("/")
         total = hdd.total / (1024.0 ** 3)
