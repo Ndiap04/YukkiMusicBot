@@ -124,7 +124,7 @@ async def admins(_, message: Message):
                     thumbnail,
                 ) = get_yt_info_id(videoid)
                 await mystic.edit(
-                    f"****{MUSIC_BOT_NAME} Sedang Memproses!**\n\n**Judul:** {title[:50]}\n\n0% ▓▓▓▓▓▓▓▓▓▓▓▓ 100%"
+                    f"**{MUSIC_BOT_NAME} Sedang Mengunduh** {title[:50]}!\n\n0% ▓▓▓▓▓▓▓▓▓▓▓▓ 100%"
                 )
                 downloaded_file = await loop.run_in_executor(
                     None, download, videoid, mystic, title
@@ -152,7 +152,7 @@ async def admins(_, message: Message):
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),
                     caption=(
-                        f"{mention} **Melewati Lagu Sebelumnya**!\n\n🎥 **Judul** : {title}\n⏱ **Durasi** : {duration_min}"
+                        f"💨 **Music Telah Dilewati Oleh**  {mention}!\n\n📝**Judul**: {title}\n⏱**Durasi**: {duration_min}"
                     ),
                 )
                 os.remove(thumb)
