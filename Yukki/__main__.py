@@ -121,7 +121,7 @@ async def initiate_bot():
 
 home_text_pm = f"""💞 Selamat datang Di**Takanashi Rika**!
 
-🎊 [Takanashi Rika](https://t.me/Takanashi_RikkaBot) memungkinkan  Anda memutar musik  pada  grup  melalui fitur video telegram yang baru !
+🎊 [Takanashi Rika](https://telegra.ph/file/d6d3661619ea6d3277ba3.jpg) memungkinkan  Anda memutar musik  pada  grup  melalui fitur video telegram yang baru !
 
 📝 **Cari tahu**  Semua perintah  bot  dan bagaimana mereka bekerja dengan mengklik tombol »  Command!
 
