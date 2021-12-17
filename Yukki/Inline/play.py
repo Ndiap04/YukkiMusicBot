@@ -22,7 +22,7 @@ def url_markup(videoid, duration, user_id, query, query_type):
         ],
         [
             InlineKeyboardButton(
-                text="🔎 Hasil Lebih",
+                text="🔎 Teks",
                 callback_data=f"Search {query}|{user_id}",
             ),
             InlineKeyboardButton(
@@ -38,7 +38,7 @@ def url_markup2(videoid, duration, user_id):
     buttons = [
         [
             InlineKeyboardButton(
-                text="▶️ Play Now",
+                text="▶️ Mainkan",
                 callback_data=f"Yukki {videoid}|{duration}|{user_id}",
             ),
             InlineKeyboardButton(
@@ -89,7 +89,7 @@ def search_markup(
                 text="<", callback_data=f"popat 1|{query}|{user_id}"
             ),
             InlineKeyboardButton(
-                text="🗑 Menutup", callback_data=f"forceclose {query}|{user_id}"
+                text="🗑", callback_data=f"forceclose {query}|{user_id}"
             ),
             InlineKeyboardButton(
                 text=">", callback_data=f"popat 1|{query}|{user_id}"
@@ -212,6 +212,7 @@ def timer_markup(videoid, user_id, current_time, total_time):
             InlineKeyboardButton(text="⏭️", callback_data=f"skipcb"),
             InlineKeyboardButton(text="⏹️", callback_data=f"stopcb"),
         ],
+        [InlineKeyboardButton("➕ ꜱᴜᴘᴘᴏʀᴛ ᴍᴜꜱɪᴄ ➕", url=f"{SUPPORT_CHANNEL}")],
         [
             InlineKeyboardButton(
                 text="🔗 Menu", callback_data=f"other {videoid}|{user_id}"
