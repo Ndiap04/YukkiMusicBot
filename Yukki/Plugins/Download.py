@@ -21,14 +21,14 @@ flex = {}
 __MODULE__ = "Global Ban"
 __HELP__ = """
 
-**Note:**
-Only for Sudo Users.
+**Catatan:**
+Hanya untuk Pengguna Sudo.
 
-/gban [Username or Reply to a user]
-- Ban a user globally in Bot's Served Chats and prevents user from using bot commands.
+  •  **Perintah** : /gban [Nama pengguna atau Balas ke pengguna]
+  •  **Function** :  Larang pengguna secara global di Obrolan yang Dilayani Bot dan cegah pengguna menggunakan perintah bot.
 
-/ungban [Username or Reply to a user]
-- Remove a user from Bot's GBan List.
+  •  **Perintah** : /ungban [Nama pengguna atau Balas ke pengguna]
+  •  **Function** : Hapus pengguna dari Daftar GBan Bot.
 """
 
 
@@ -65,11 +65,11 @@ async def ytdata(_, CallbackQuery):
 
 
 inl = InlineKeyboardMarkup(
-    [[InlineKeyboardButton(text="Downloading......", callback_data=f"down")]]
+    [[InlineKeyboardButton(text="Mengunduh......", callback_data=f"down")]]
 )
 
 upl = InlineKeyboardMarkup(
-    [[InlineKeyboardButton(text="Uploading......", callback_data=f"down")]]
+    [[InlineKeyboardButton(text="Mengunggah......", callback_data=f"down")]]
 )
 
 
@@ -77,15 +77,15 @@ def inl_mark(videoid, user_id):
     buttons = [
         [
             InlineKeyboardButton(
-                text="Download or Upload Failed......", callback_data=f"down"
+                text="Unduh atau Unggah Gagal......", callback_data=f"down"
             )
         ],
         [
             InlineKeyboardButton(
-                text="⬅️  Go Back", callback_data=f"good {videoid}|{user_id}"
+                text="⬅️  Kembali", callback_data=f"good {videoid}|{user_id}"
             ),
             InlineKeyboardButton(
-                text="🗑 Close Menu", callback_data=f"close2"
+                text="🗑 Hapus", callback_data=f"close2"
             ),
         ],
     ]
@@ -103,7 +103,7 @@ async def boom(_, CallbackQuery):
     user_id = CallbackQuery.from_user.id
     type, format_id, videoid = callback_request.split("||")
     mystic = await CallbackQuery.edit_message_text(
-        "Download Started\n\nDownloading speed could be slow. Please hold on..",
+        "Unduh Dimulai\n\nKecepatan pengunduhan bisa lambat. Mohon tunggu sebentar..",
         reply_markup=inl,
     )
     yturl = f"https://www.youtube.com/watch?v={videoid}"
@@ -115,16 +115,14 @@ async def boom(_, CallbackQuery):
         thumb_image_path = result["thumbnails"][0]["url"]
         channel = channel = result["channel"]["name"]
         fetched = f"""
-🔍**Track Downloaded**
+🔍**Informasi Music**
 
-❇️**Title:** {title}
-
-⏳**Duration:** {duration} Mins
+📝**Judul:** [{title}]({yturl})
+⏳**Durasi:** {duration} Mins
 👀**Views:** `{views}`
 🎥**Channel Name:** {channel}
-🔗**Video Link:** [Link]({yturl})
 
-⚡️ __Youtube Inline Download Powered By {MUSIC_BOT_NAME}__"""
+**Powered By** : [SuksesMakmur](t.me/SuksesMakmur)"""
     filext = "%(title)s.%(ext)s"
     userdir = os.path.join(os.getcwd(), "downloads", str(user_id))
     if not os.path.isdir(userdir):
@@ -230,7 +228,7 @@ async def boom(_, CallbackQuery):
 
 def p_mark(link, channel):
     buttons = [
-        [InlineKeyboardButton(text="Watch on Youtube", url=f"{link}")],
+        [InlineKeyboardButton(text="Tonton di Youtube", url=f"{link}")],
     ]
     return buttons
 
@@ -239,7 +237,7 @@ async def send_file(
     CallbackQuery, med, filename, videoid, user_id, link, channel
 ):
     await CallbackQuery.edit_message_text(
-        "Upload Started\n\nUploading speed could be slow. Please hold on..",
+        "Pengunggahan Dimulai\in\Kecepatan pengunggahan mungkin lambat. Mohon tunggu sebentar..",
         reply_markup=upl,
     )
     try:
@@ -298,7 +296,7 @@ def duration(vid_file_path):
             if "duration" in s:
                 return float(s["duration"])
 
-    raise Exception("duration Not found")
+    raise Exception("durasi Tidak ditemukan")
 
 
 async def downloadvideocli(command_to_exec):
