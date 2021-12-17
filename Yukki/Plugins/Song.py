@@ -19,9 +19,8 @@ loop = asyncio.get_event_loop()
 __MODULE__ = "Song"
 __HELP__ = """
 
-
-/song [Youtube URL or Search Query] 
-- Download the particular query in audio or video format.
+  •  **Perintah** : /song [URL Youtube atau Kueri Penelusuran] 
+  •  **Function** : Unduh kueri tertentu dalam format audio atau video.
 
 
 
@@ -50,7 +49,7 @@ async def play(_, message: Message):
             videoid,
         ) = await loop.run_in_executor(None, get_yt_info_query, query)
         if str(duration_min) == "None":
-            return await mystic.edit("Sorry! Its a Live Video")
+            return await mystic.edit("Maaf! Ini Video Langsung")
         await mystic.delete()
         buttons = song_download_markup(videoid, message.from_user.id)
         return await message.reply_photo(
@@ -74,7 +73,7 @@ async def play(_, message: Message):
             videoid,
         ) = await loop.run_in_executor(None, get_yt_info_query, query)
         if str(duration_min) == "None":
-            return await mystic.edit("Sorry! Its a Live Video")
+            return await mystic.edit("Maaf! Ini Video Langsung")
         await mystic.delete()
         buttons = song_markup(
             videoid, duration_min, message.from_user.id, query, 0
