@@ -16,17 +16,17 @@ from Yukki.Inline import (add_genre_markup, check_genre_markup, check_markup,
 __MODULE__ = "Playlist"
 __HELP__ = """
 
-/playplaylist 
-- Start playing Your Saved Playlist.
+  •  **Perintah** : /playplaylist 
+  •  **Function** : Mulai mainkan Daftar Putar Tersimpan Anda.
 
-/playlist 
-- Check Your Saved Playlist On Servers.
+  •  **Perintah** : /playlist 
+  •  **Function** : Cek Daftar Putar Musik Kamu.
 
-/delmyplaylist
-- Delete any saved music in your playlist
+  •  **Perintah** : /delmyplaylist
+  •  **Function** : Hapus semua musik yang disimpan di daftar putar Anda.
 
-/delgroupplaylist
-- Delete any saved music in your group's playlist [Requires Admin Rights.]
+  •  **Perintah** : /delgroupplaylist
+  •  **Function** : Hapus semua musik yang disimpan di daftar putar grup Anda [Memerlukan Hak Admin.]
 
 """
 
@@ -65,7 +65,7 @@ async def play_playlist_cmd(_, message):
             hmo = await message.reply_photo(
                 photo=thumb,
                 caption=(
-                    f"**{MUSIC_BOT_NAME}'s Playlist Feature**\nSelect the Playlist you want to play!.\n\nYou can play someone else's playlist too:-\n- /playplaylist [Username]\n- /playplaylist [USER ID](if user has deleted acc)\n- /playplaylist [Reply to a User]"
+                    f"**{MUSIC_BOT_NAME}'s Fitur Daftar Putar**\nPilih Daftar Putar yang ingin Anda mainkan!.\n\nAnda juga dapat memutar daftar putar orang lain:-\n- /playplaylist [Username]\n- /playplaylist [USER ID](jika pengguna telah menghapus akun)\n- /playplaylist [Balas ke Pengguna]"
                 ),
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
@@ -77,7 +77,7 @@ async def play_playlist_cmd(_, message):
             await message.reply_photo(
                 photo=thumb,
                 caption=(
-                    f"**{MUSIC_BOT_NAME}'s Playlist Feature**\nSelect the Playlist you want to play!.\n\nYou can play someone else's playlist too:-\n- /playplaylist [Username]\n- /playplaylist [USER ID](if user has deleted acc)\n- /playplaylist [Reply to a User]"
+                    f"**{MUSIC_BOT_NAME}'s Fitur Daftar Putar**\nPilih Daftar Putar yang ingin Anda putar!.\in\Anda juga dapat memutar daftar putar orang lain:-\n- /playplaylist [Username]\n- /playplaylist [USER ID](jika pengguna telah menghapus akun)\n- /playplaylist [Balas ke Pengguna]"
                 ),
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
@@ -93,7 +93,7 @@ async def play_playlist_cmd(_, message):
         hmo = await message.reply_photo(
             photo=thumb,
             caption=(
-                f"**{MUSIC_BOT_NAME}'s Playlist Feature**\nSelect the Playlist you want to play!.\n\nYou can play someone else's playlist too:-\n- /playplaylist [Username]\n- /playplaylist [USER ID](if user has deleted acc)\n- /playplaylist [Reply to a User]"
+                f"**{MUSIC_BOT_NAME}'s Fitur Daftar Putar**\nPilih Daftar Putar yang ingin Anda mainkan!.\nin\Anda juga dapat memutar daftar putar orang lain:-\n- /playplaylist [Username]\n- /playplaylist [USER ID](jika pengguna telah menghapus akun)\n- /playplaylist [Balas ke Pengguna]"
             ),
             reply_markup=InlineKeyboardMarkup(buttons),
         )
@@ -186,7 +186,7 @@ async def del_cmd(_, message):
         _playlist = await get_playlist_names(message.from_user.id, genre)
     if not _playlist:
         await message.reply_text(
-            f"You have no Playlist on {MUSIC_BOT_NAME}'s Server"
+            f"Anda tidak memiliki Daftar Putar di {MUSIC_BOT_NAME} Server"
         )
     else:
         titlex = []
@@ -201,13 +201,13 @@ async def del_cmd(_, message):
                 )
                 if deleted:
                     return await message.reply_text(
-                        f"**Deleted the {count} music in playlist**"
+                        f"**dihapus {count} musik di daftar putar**"
                     )
                 else:
                     return await message.reply_text(
-                        f"**No such saved music in playlist.**"
+                        f"**Tidak ada musik yang disimpan dalam daftar putar.**"
                     )
-        await message.reply_text("You have no such music in Playlist.")
+        await message.reply_text("Anda tidak memiliki musik seperti itu di Daftar Putar.")
 
 
 @app.on_message(filters.command("delgroupplaylist"))
@@ -227,14 +227,14 @@ async def delgroupplaylist(_, message):
     if str(count) == "all":
         buttons = delete_playlist_markuup("Group", genre)
         return await message.reply_text(
-            f"Confirmation!!\nYou sure you want to delete Group's whole {genre} playlist?",
+            f"Konfirmasi!!\nAnda yakin ingin menghapus seluruh Grup {genre} playlist?",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     else:
         _playlist = await get_playlist_names(message.chat.id, genre)
     if not _playlist:
         await message.reply_text(
-            f"You have no Playlist on {MUSIC_BOT_NAME}'s Server"
+            f"Anda tidak memiliki Daftar Putar di {MUSIC_BOT_NAME} Server"
         )
     else:
         titlex = []
@@ -247,11 +247,11 @@ async def delgroupplaylist(_, message):
                 deleted = await delete_playlist(message.chat.id, note, genre)
                 if deleted:
                     return await message.reply_text(
-                        f"**Deleted the {count} music in group's playlist**"
+                        f"**dihapus {count} musik di grup playlist**"
                     )
                 else:
                     return await message.reply_text(
-                        f"**No such saved music in Group playlist.**"
+                        f"**Tidak ada musik yang disimpan seperti itu di daftar putar Grup.**"
                     )
         await message.reply_text("You have no such music in Playlist.")
 
