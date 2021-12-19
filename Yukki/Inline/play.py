@@ -161,6 +161,7 @@ def secondary_markup(videoid, user_id):
             InlineKeyboardButton(text="⏭️", callback_data=f"skipcb"),
             InlineKeyboardButton(text="⏹️", callback_data=f"stopcb"),
         ],
+        [InlineKeyboardButton("➕ ꜱᴜᴘᴘᴏʀᴛ ᴍᴜꜱɪᴄ ➕", url=f"{SUPPORT_CHANNEL}")],
         [
             InlineKeyboardButton(
                 text="🔗 Menu", callback_data=f"other {videoid}|{user_id}"
@@ -188,6 +189,7 @@ def primary_markup(videoid, user_id, current_time, total_time):
             InlineKeyboardButton(text="⏭️", callback_data=f"skipcb"),
             InlineKeyboardButton(text="⏹️", callback_data=f"stopcb"),
         ],
+        [InlineKeyboardButton("➕ ꜱᴜᴘᴘᴏʀᴛ ᴍᴜꜱɪᴄ ➕", url=f"{SUPPORT_CHANNEL}")],
         [
             InlineKeyboardButton(
                 text="🔗 Menu", callback_data=f"other {videoid}|{user_id}"
