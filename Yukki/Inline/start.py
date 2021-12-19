@@ -9,12 +9,12 @@ def welcome_pannel():
         buttons = [
             [
                 InlineKeyboardButton(
-                    text="📝 Command", callback_data="shikhar"
+                    text="🔧 Pengaturan", callback_data="settingm"
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    text="🔧 Settings", callback_data="settingm"
+                    text="📝 Bantuan", callback_data="shikhar"
                 )
             ],
         ]
