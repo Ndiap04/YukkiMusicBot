@@ -56,7 +56,7 @@ async def start_stream(
         final_output = await CallbackQuery.message.reply_photo(
             photo=thumb,
             caption=(
-                f"🎬<b>__Song:__ </b>[{title[:25]}](https://www.youtube.com/watch?v={videoid}) \n⏳<b>__Duration:__</b> {duration_min} \n💡<b>__Info:__</b> [Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n👤<b>__Requested by:__ </b>{CallbackQuery.from_user.mention} \n🚧<b>__Queued at:__</b> <b>#{position}!</b>"
+                f"💡 **Lagu Ditambahkan Keantrian** » `{position}`\n\n📝**Judul:** [{title[:25]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⏳**Durasi:** {duration_min}"
             ),
             reply_markup=InlineKeyboardMarkup(buttons),
         )
@@ -77,7 +77,7 @@ async def start_stream(
             )
         except Exception as e:
             return await mystic.edit(
-                "Error Joining Voice Chat. Make sure Voice Chat is Enabled."
+                "Kesalahan Bergabung dengan Obrolan Suara. Pastikan Obrolan Suara Diaktifkan."
             )
         get_queue[CallbackQuery.message.chat.id] = []
         got_queue = get_queue.get(CallbackQuery.message.chat.id)
@@ -92,7 +92,7 @@ async def start_stream(
             videoid, CallbackQuery.from_user.id, duration_min, duration_min
         )
         await mystic.delete()
-        cap = f"🎥<b>__Playing:__ </b>[{title[:25]}](https://www.youtube.com/watch?v={videoid}) \n💡<b>__Info:__</b> [Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n👤**__Requested by:__** {CallbackQuery.from_user.mention}"
+        cap = f"📝**Judul:** [{title[:25]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n👤**Requested:** {CallbackQuery.from_user.mention}\n\n**Powered By:** [SuksesMakmur](t.me/SuksesMakmur)"
         final_output = await CallbackQuery.message.reply_photo(
             photo=thumb,
             reply_markup=InlineKeyboardMarkup(buttons),
@@ -137,7 +137,7 @@ async def start_stream_audio(
         final_output = await message.reply_photo(
             photo="Utils/Telegram.JPEG",
             caption=(
-                f"🎬<b>__Audio:__ </b> [Given Audio Via Telegram]({link})\n⏳<b>__Duration:__</b> {duration_min} \n👤<b>__Requested by:__ </b>{message.from_user.mention} \n🚧<b>__Queued at:__</b> <b>#{position}!</b>"
+                f"💡 **Lagu Ditambahkan Keantrian** » `{position}`\n\n📝**Audio:** [Diberikan Audio Melalui Telegram]({link})\n⏳**Durasi:** {duration_min}\n👤**Request:** {message.from_user.mention}"
             ),
             reply_markup=audio_markup2,
         )
@@ -156,7 +156,7 @@ async def start_stream_audio(
             )
         except Exception as e:
             await mystic.edit(
-                "Error Joining Voice Chat. Make sure Voice Chat is Enabled."
+                "Kesalahan Bergabung dengan Obrolan Suara. Pastikan Obrolan Suara Diaktifkan."
             )
             return
         get_queue[message.chat.id] = []
@@ -172,7 +172,7 @@ async def start_stream_audio(
             videoid, message.from_user.id, duration_min, duration_min
         )
         await mystic.delete()
-        cap = f"🎥<b>__Playing:__ </b>[Given Audio Via Telegram]({link})\n👤**__Requested by:__** {message.from_user.mention}"
+        cap = f"🎥**Playing:"** [Given Audio Via Telegram]({link})\n👤**Request:** {message.from_user.mention}"
         final_output = await message.reply_photo(
             photo="Utils/Telegram.JPEG",
             reply_markup=InlineKeyboardMarkup(buttons),
