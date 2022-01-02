@@ -149,10 +149,10 @@ def private_panel():
             ],
             [
                 InlineKeyboardButton(
-                    text="🎊 Channel", url=f"{SUPPORT_CHANNEL}"
+                    text="🎊 ᴄʜᴀɴɴᴇʟ", url=f"{SUPPORT_CHANNEL}"
                 ),
                 InlineKeyboardButton(
-                    text="📝 Command", callback_data="shikhar"
+                    text="📝 ꜱᴜᴘᴘᴏʀᴛ", curl=f"t.me/BottyCu"
                 ),
             ],
         ]
