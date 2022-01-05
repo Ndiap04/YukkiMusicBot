@@ -14,7 +14,7 @@ def check_markup(user_name, user_id, videoid):
                 callback_data=f"playlist_check {user_id}|Personal|{videoid}",
             ),
         ],
-        [InlineKeyboardButton(text="🗑 Tutup Menu", callback_data="close")],
+        [InlineKeyboardButton(text="🗑 Hapus", callback_data="close")],
     ]
     return buttons
 
@@ -104,7 +104,7 @@ def add_genre_markup(user_id, type, videoid):
         [
             InlineKeyboardButton(
                 text=f"✚ IndoPop",
-                callback_data=f"add_playlist {videoid}|{type}|Indo Pop",
+                callback_data=f"add_playlist {videoid}|{type}|IndoPop",
             ),
             InlineKeyboardButton(
                 text=f"✚ Rock",
@@ -201,7 +201,7 @@ def third_playlist_markup(user_name, user_id, third_name, userid, videoid):
                 callback_data=f"show_genre {userid}|third|{videoid}",
             ),
         ],
-        [InlineKeyboardButton(text="🗑 Close", callback_data="close")],
+        [InlineKeyboardButton(text="🗑 Hapus", callback_data="close")],
     ]
     return buttons
 
@@ -215,7 +215,7 @@ def paste_queue_markup(url):
             InlineKeyboardButton(text="⏹️", callback_data=f"stopcb"),
         ],
         [InlineKeyboardButton(text="Daftar Putar Antrian Checkout", url=f"{url}")],
-        [InlineKeyboardButton(text="🗑 Close Menu", callback_data=f"close")],
+        [InlineKeyboardButton(text="🗑 Hapus", callback_data=f"close")],
     ]
     return buttons
 
@@ -229,7 +229,7 @@ def fetch_playlist(user_name, type, genre, user_id, url):
             ),
         ],
         [InlineKeyboardButton(text="Periksa Daftar Putar", url=f"{url}")],
-        [InlineKeyboardButton(text="🗑 Close Menu", callback_data=f"close")],
+        [InlineKeyboardButton(text="🗑 Hapus", callback_data=f"close")],
     ]
     return buttons
 
