@@ -77,7 +77,7 @@ async def start_stream(
             )
         except Exception as e:
             return await mystic.edit(
-                "Kesalahan Bergabung dengan Obrolan Suara. Pastikan Obrolan Suara Diaktifkan."
+                "✖️ Kesalahan Bergabung dengan Obrolan Suara. Pastikan Obrolan Suara Diaktifkan."
             )
         get_queue[CallbackQuery.message.chat.id] = []
         got_queue = get_queue.get(CallbackQuery.message.chat.id)
@@ -92,7 +92,7 @@ async def start_stream(
             videoid, CallbackQuery.from_user.id, duration_min, duration_min
         )
         await mystic.delete()
-        cap = f"📝**Judul:** [{title[:25]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n👤**Requested:** {CallbackQuery.from_user.mention}\n\n**Powered By:** [SuksesMakmur](t.me/SuksesMakmur)"
+        cap = f"📝**Judul** : [{title[:25]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n👤**Request** : {CallbackQuery.from_user.mention}\n\n🐼**Powered By** : [Team BottyCu](t.me/BottyCu)"
         final_output = await CallbackQuery.message.reply_photo(
             photo=thumb,
             reply_markup=InlineKeyboardMarkup(buttons),
@@ -172,7 +172,7 @@ async def start_stream_audio(
             videoid, message.from_user.id, duration_min, duration_min
         )
         await mystic.delete()
-        cap = f"🎥**Playing:** [Given Audio Via Telegram]({link})\n👤**Request:** {message.from_user.mention}"
+        cap = f"🎥**Playing:** [Diberikan Audio Melalui Telegram]({link})\n👤**Request:** {message.from_user.mention}"
         final_output = await message.reply_photo(
             photo="Utils/Telegram.JPEG",
             reply_markup=InlineKeyboardMarkup(buttons),
