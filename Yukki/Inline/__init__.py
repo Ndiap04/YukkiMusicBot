@@ -8,5 +8,5 @@ from .playlist import (add_genre_markup, check_genre_markup, check_markup,
                        playlist_markup, third_playlist_markup)
 from .song import song_download_markup, song_markup
 from .start import (custommarkup, dashmarkup, private_panel, setting_markup,
-                    start_pannel, welcome_pannel, usermarkup, volmarkup)
+                    start_pannel, welcome_pannel, usermarkup, volmarkup, settings_pannel, pemilik_pannel, sudo_pannel)
 from .stats import stats1, stats2, stats3, stats4, stats5, stats6, stats7
