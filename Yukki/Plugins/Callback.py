@@ -40,7 +40,7 @@ async def forceclose(_, CallbackQuery):
     query, user_id = callback_request.split("|")
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "You're not allowed to close this.", show_alert=True
+            "⚠️ Anda tidak memiliki izin untuk melakukan pengoperasian ini\n\n💡 Jika anda berpikir memilikinya , gunakan /settings dan coba lagi", show_alert=True
         )
     await CallbackQuery.message.delete()
     await CallbackQuery.answer()
@@ -170,7 +170,7 @@ async def admin_risghts(_, CallbackQuery):
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),
                     caption=(
-                        f"💨 **Music Telah Dilewati Oleh** {mention}!\n\n📝**Judul**:[{title[:25]}](https://www.youtube.com/watch?v={videoid})\n⏱**Durasi**: {duration_min} Mins"
+                        f"⏭ **Music Telah Dilewati Oleh** {mention}!\n\n📝**Judul**:[{title[:25]}](https://www.youtube.com/watch?v={videoid})\n⏱**Durasi**: {duration_min} Mins"
                     ),
                 )
                 os.remove(thumb)
@@ -218,7 +218,7 @@ async def admin_risghts(_, CallbackQuery):
                 final_output = await CallbackQuery.message.reply_photo(
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),
-                    caption=f"💨 **Music Telah Dilewati Oleh** {mention}!\n\n📝**Judul**:[{title[:25]}](https://www.youtube.com/watch?v={videoid})\n⏱**Durasi**: {duration_min} Mins",
+                    caption=f"⏭ **Music Telah Dilewati Oleh** {mention}!\n\n📝**Judul**:[{title[:25]}](https://www.youtube.com/watch?v={videoid})\n⏱**Durasi**: {duration_min} Mins",
                 )
             await start_timer(
                 videoid,
@@ -267,7 +267,7 @@ async def play_playlist(_, CallbackQuery):
         return await CallbackQuery.answer("Kesalahan Dalam Daftar Putar.")
     if not _playlist:
         return await CallbackQuery.answer(
-            f"This User has no playlist on servers.", show_alert=True
+            f"Pengguna ini tidak memiliki daftar putar di server.", show_alert=True
         )
     else:
         await CallbackQuery.message.delete()
@@ -330,7 +330,7 @@ async def play_playlist(_, CallbackQuery):
                     )
                 except Exception as e:
                     return await mystic.edit(
-                        "Error Joining Voice Chat. Make sure Voice Chat is Enabled."
+                        "Kesalahan Bergabung dengan Obrolan Suara. Pastikan Obrolan Suara Diaktifkan."
                     )
                 theme = await check_theme(chat_id)
                 chat_title = await specialfont_to_normal(chat_title)
@@ -367,7 +367,7 @@ async def play_playlist(_, CallbackQuery):
         await mystic.delete()
         if for_p == 1:
             m = await CallbackQuery.message.reply_text(
-                "Pasting Queued Playlist to Bin"
+                "Menempel Daftar Putar Antrian ke Bin"
             )
             link = await paste_queue(msg)
             preview = link + "/preview.png"
