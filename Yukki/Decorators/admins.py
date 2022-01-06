@@ -25,7 +25,7 @@ def AdminRightsCheck(mystic):
                     _check = await get_authuser_names(message.chat.id)
                     if token not in _check:
                         return await message.reply(
-                            "Anda tidak memiliki izin yang diperlukan untuk melakukan tindakan ini.\n\n__MEMERLUKAN ADMIN DENGAN MENGELOLA HAK VC__"
+                            "⚠️ Anda tidak memiliki izin untuk melakukan pengoperasian ini\n\n💡 Jika anda berpikir memilikinya , gunakan /settings ubah menjadi **Everyone**."
                         )
         return await mystic(_, message)
 
@@ -43,7 +43,7 @@ def AdminActual(mystic):
         )
         if not member.can_manage_voice_chats:
             return await message.reply(
-                "Anda tidak memiliki izin yang diperlukan untuk melakukan tindakan ini.\n\n__MEMERLUKAN ADMIN DENGAN MENGELOLA HAK VC__"
+                "⚠️ Anda tidak memiliki izin untuk melakukan pengoperasian ini\n\n💡 Jika anda berpikir memilikinya , gunakan /settings ubah menjadi **Everyone**."
             )
         return await mystic(_, message)
 
@@ -65,7 +65,7 @@ def AdminRightsCheckCB(mystic):
                     )
                     if token not in _check:
                         return await CallbackQuery.answer(
-                            "Anda tidak memiliki izin yang diperlukan untuk melakukan tindakan ini.\nIzin: MENGELOLA VOICE CHATS",
+                            "⚠️ Anda tidak memiliki izin untuk melakukan pengoperasian ini\n\n💡 Jika anda berpikir memilikinya , gunakan /settings ubah menjadi **Everyone**.",
                             show_alert=True,
                         )
         return await mystic(_, CallbackQuery)
@@ -80,7 +80,7 @@ def ActualAdminCB(mystic):
         )
         if not a.can_manage_voice_chats:
             return await CallbackQuery.answer(
-                "Anda tidak memiliki izin yang diperlukan untuk melakukan tindakan ini.\nIzin: MENGELOLA VOICE CHATS",
+                "⚠️ Anda tidak memiliki izin untuk melakukan pengoperasian ini\n\n💡 Jika anda berpikir memilikinya , gunakan /settings ubah menjadi **Everyone**.",
                 show_alert=True,
             )
         return await mystic(_, CallbackQuery)
