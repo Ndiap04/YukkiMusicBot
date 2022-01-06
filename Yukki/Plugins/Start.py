@@ -58,6 +58,7 @@ async def welcome(_, message: Message):
                 out = pemilik_pannel()
                 return await message.reply_text(
                     f"🌟 __Welcome__ [{member.mention}] __Terimakasih Telah Hadir!__\n\n» Pemilik {MUSIC_BOT_NAME} Baru Saja Bergabung Dengan Chat Anda."
+                      reply_markup=InlineKeyboardMarkup(out[1]),
                 )
             if member.id in SUDOERS:
                 out = sudo_pannel()
