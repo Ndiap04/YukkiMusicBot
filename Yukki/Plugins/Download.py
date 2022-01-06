@@ -103,7 +103,7 @@ async def boom(_, CallbackQuery):
     user_id = CallbackQuery.from_user.id
     type, format_id, videoid = callback_request.split("||")
     mystic = await CallbackQuery.edit_message_text(
-        "Unduh Dimulai\n\nKecepatan pengunduhan bisa lambat. Mohon tunggu sebentar..",
+        "⏰ **Unduh Dimulai** !\n\n» Kecepatan pengunduhan bisa lambat.Mohon tunggu sebentar..",
         reply_markup=inl,
     )
     yturl = f"https://www.youtube.com/watch?v={videoid}"
@@ -237,7 +237,7 @@ async def send_file(
     CallbackQuery, med, filename, videoid, user_id, link, channel
 ):
     await CallbackQuery.edit_message_text(
-        "Pengunggahan Dimulai\in\Kecepatan pengunggahan mungkin lambat. Mohon tunggu sebentar..",
+        "📤 **Pengunggahan Dimulai!**\n\n» Kecepatan pengunggahan mungkin lambat.Mohon tunggu sebentar..",
         reply_markup=upl,
     )
     try:
