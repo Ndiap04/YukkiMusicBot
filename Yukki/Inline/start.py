@@ -4,6 +4,25 @@ from pyrogram.types import (CallbackQuery, InlineKeyboardButton,
 
 from Yukki import BOT_USERNAME
 
+def settings_pannel():
+        buttons = [
+             [
+            InlineKeyboardButton(
+                text="⚙ Settings", callback_data="settingm"
+                )
+            ],
+        ]
+        return f"🎛  **This is {MUSIC_BOT_NAME}**", buttons
+
+def sudo_pannel():
+        buttons = [
+             [
+            InlineKeyboardButton(
+                text="🗑 Hapus", callback_data="close"
+                )
+            ],
+        ]
+        return f"🎛  **This is {MUSIC_BOT_NAME}**", buttons
 
 def welcome_pannel():
         buttons = [
@@ -15,6 +34,21 @@ def welcome_pannel():
             [
                 InlineKeyboardButton(
                     text="📝 Bantuan", callback_data="shikhar"
+                )
+            ],
+        ]
+        return f"🎊  **Welcome {MUSIC_BOT_NAME}**", buttons
+
+def pemilik_pannel():
+        buttons = [
+            [
+                InlineKeyboardButton(
+                    text="Pemilik Takanashi", url=f"t.me/pikyus1"
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    text="🗑 Hapus", callback_data="close"
                 )
             ],
         ]
