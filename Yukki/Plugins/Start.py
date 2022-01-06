@@ -57,7 +57,7 @@ async def welcome(_, message: Message):
             if member.id in OWNER_ID:
                 out = pemilik_pannel()
                 return await message.reply_text(
-                    f"🌟 __Welcome__ [{member.mention}] __Terimakasih Telah Hadir!__\n\n» Pemilik {MUSIC_BOT_NAME} Baru Saja Bergabung Dengan Chat Anda."
+                    f"🌟 __Welcome__ [{member.mention}] __Terimakasih Telah Hadir!__\n\n» Pemilik {MUSIC_BOT_NAME} Baru Saja Bergabung Dengan Chat Anda.",
                       reply_markup=InlineKeyboardMarkup(out[1]),
                 )
             if member.id in SUDOERS:
@@ -81,21 +81,23 @@ async def welcome(_, message: Message):
 @app.on_message(filters.command(["start"]) & filters.group)
 @PermissionCheck
 async def online(_, message: Message):
+    out = uptime_pannel()
     await asyncio.gather(
         message.delete(),
         message.reply_text(
             f"**I'am Online**!",
+            reply_markup=InlineKeyboardMarkup(out[1]),
         ),
     )
 
 @app.on_message(filters.command(["settings"]) & filters.group)
 @PermissionCheck
 async def settings(_, message: Message):
-    out = settings_pannel()
+    out = setting_markup()
     await asyncio.gather(
         message.delete(),
         message.reply_text(
-            f"**Terima Kasih Telah Memasukkan Saya Digrub {message.chat.title}**!\n`Silakan Lihat Perintah Apa Saja Yang Dapat Digunakan!`",
+            f"☠️ **Settings Bot** , Untuk Groups » {message.chat.title} ",
             reply_markup=InlineKeyboardMarkup(out[1]),
         ),
     )
