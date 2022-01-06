@@ -20,7 +20,7 @@ from Yukki.Database import (add_nonadmin_chat, add_served_chat,
 from Yukki.Decorators.admins import ActualAdminCB
 from Yukki.Decorators.permission import PermissionCheck
 from Yukki.Inline import (custommarkup, dashmarkup, setting_markup,
-                          start_pannel, usermarkup, volmarkup, welcome_pannel)
+                          start_pannel, usermarkup, volmarkup, welcome_pannel, sudo_pannel, pemilik_pannel, settings_pannel)
 from Yukki.Utilities.ping import get_readable_time
 
 welcome_group = 2
@@ -55,12 +55,15 @@ async def welcome(_, message: Message):
     for member in message.new_chat_members:
         try:
             if member.id in OWNER_ID:
+                out = pemilik_pannel()
                 return await message.reply_text(
-                    f"{MUSIC_BOT_NAME} Pemilik [{member.mention}] baru saja bergabung dengan cha Anda!"
+                    f"🌟 __Welcome__ [{member.mention}] __Terimakasih Telah Hadir!__\n\n» Pemilik {MUSIC_BOT_NAME} Baru Saja Bergabung Dengan Chat Anda."
                 )
             if member.id in SUDOERS:
+                out = sudo_pannel()
                 return await message.reply_text(
-                    f"Anggota Dari {MUSIC_BOT_NAME} , Sudo Pengguna [{member.mention}] baru saja bergabung dengan obrolan Anda!"
+                    f"🚧 __Pengguna Sudo__ {MUSIC_BOT_NAME} __Telah Hadir__!\n\n» Sudo Pengguna [{member.mention}] Baru Saja Bergabung Dengan Obrolan Anda.",
+                      reply_markup=InlineKeyboardMarkup(out[1]),
                 )
             if member.id == ASSID:
                 await remove_active_chat(chat_id)
@@ -74,6 +77,27 @@ async def welcome(_, message: Message):
         except:
             return
 
+@app.on_message(filters.command(["start"]) & filters.group)
+@PermissionCheck
+async def online(_, message: Message):
+    await asyncio.gather(
+        message.delete(),
+        message.reply_text(
+            f"**I'am Online**!",
+        ),
+    )
+
+@app.on_message(filters.command(["settings"]) & filters.group)
+@PermissionCheck
+async def settings(_, message: Message):
+    out = settings_pannel()
+    await asyncio.gather(
+        message.delete(),
+        message.reply_text(
+            f"**Terima Kasih Telah Memasukkan Saya Digrub {message.chat.title}**!\n`Silakan Lihat Perintah Apa Saja Yang Dapat Digunakan!`",
+            reply_markup=InlineKeyboardMarkup(out[1]),
+        ),
+    )
 
 @app.on_message(filters.command(["help"]) & filters.group)
 @PermissionCheck
@@ -131,12 +155,12 @@ async def EVE(_, CallbackQuery):
         await CallbackQuery.answer("Changes Saved")
         await add_nonadmin_chat(chat_id)
         await CallbackQuery.edit_message_text(
-            text=f"{text}\n\nAdmins Commands Mode to **Everyone**\n\nNow anyone present in this group can skip, pause, resume, stop music.\n\nChanges Done By @{checking}",
+            text=f"{text}\n\nMode Perintah Admin ke **Everyone**\n\nSekarang siapa pun yang hadir di grup ini dapat skip, pause, resume, stop music.\n\nPerubahan Dilakukan Oleh @{checking}",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     else:
         await CallbackQuery.answer(
-            "Mode Perintah Sudah Disetel Untuk SEMUA ORANG", show_alert=True
+            "✔️ **Perintah Semua Orang Sudah Diterapkan**!\n\n» Sekarang Hanya Semua Orang Dapat Menggunakan Perintah.", show_alert=True
         )
 
 
@@ -149,13 +173,13 @@ async def AMS(_, CallbackQuery):
     is_non_admin = await is_nonadmin_chat(chat_id)
     if not is_non_admin:
         await CallbackQuery.answer(
-            "Mode Perintah Sudah Disetel Ke ADMIN SAJA", show_alert=True
+            "✔️ **Perintah Hanya Admin Sudah Diterapkan**!\n\n» Sekarang Hanya Admin Yang Dapat Menggunakan Perintah.", show_alert=True
         )
     else:
         await CallbackQuery.answer("Changes Saved")
         await remove_nonadmin_chat(chat_id)
         await CallbackQuery.edit_message_text(
-            text=f"{text}\n\nSetel Mode Perintah ke **Admins**\n\nSekarang hanya Admin yang ada di grup ini yang dapat skip, pause, resume, stop musics.\n\nPerubahan Dilakukan Oleh @{checking}",
+            text=f"{text}\n\n💡 Setel Mode Perintah ke **Admins** Sudah Diterapkan !\n\n» Sekarang hanya Admin yang ada di grup ini yang dapat skip, pause, resume, stop musics.\n\n☠️ **Powered By** : @{checking}",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
 
@@ -190,7 +214,7 @@ async def start_markup_check(_, CallbackQuery):
         else:
             current = "Everyone"
         await CallbackQuery.edit_message_text(
-            text=f"{text}\n\n**Group:** {c_title}\n\nSaat Ini Siapa yang Dapat Menggunakan {MUSIC_BOT_NAME}:- **{current}**\n\n**⁉️ Apa ini?**\n\n**👥 Everyone :-**Siapa pun dapat menggunakan {MUSIC_BOT_NAME} perintah(skip, pause, resume etc) hadir di grup ini.\n\n**🙍 Admin Only :-**  Hanya admin dan pengguna resmi yang dapat menggunakan semua perintah dari {MUSIC_BOT_NAME}.",
+            text=f"{text}\n\n**Group:** {c_title}\n\n» Saat ini Siapa Yang Dapat Menggunakan {MUSIC_BOT_NAME} ( **{current}** ) |\n\n**⁉️ Apa ini?**\n\n**👥 Everyone :- **Siapa pun dapat menggunakan {MUSIC_BOT_NAME} perintah(skip, pause, resume etc) hadir di grup ini.\n\n**🙍 Admin Only :-**  Hanya admin dan pengguna resmi yang dapat menggunakan semua perintah dari {MUSIC_BOT_NAME}.",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     if command == "Dashboard":
@@ -413,7 +437,7 @@ async def start_markup_check(_, CallbackQuery):
         _playlist = await get_authuser_names(CallbackQuery.message.chat.id)
         if not _playlist:
             return await CallbackQuery.edit_message_text(
-                text=f"{text}\n\nTidak Ada Pengguna Resmi Ditemukan\n\nAnda dapat mengizinkan non-admin untuk menggunakan perintah admin saya dengan /auth dan hapus dengan menggunakan /unauth",
+                text=f"{text}\n\n🚧 **Tidak Ada Pengguna Resmi Ditemukan!**\n\n» Anda dapat mengizinkan non-admin untuk menggunakan perintah admin saya dengan /auth dan hapus dengan menggunakan /unauth",
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
         else:
@@ -421,7 +445,7 @@ async def start_markup_check(_, CallbackQuery):
             await CallbackQuery.edit_message_text(
                 "Mengambil Pengguna Resmi... Harap Tunggu"
             )
-            msg = f"**Authorised Users List[AUL]:**\n\n"
+            msg = f"**[AUL]:**\n\n"
             for note in _playlist:
                 _note = await get_authuser(
                     CallbackQuery.message.chat.id, note
@@ -460,5 +484,5 @@ async def start_markup_check(_, CallbackQuery):
     if command == "DIT":
         diske = psutil.disk_usage("/").percent
         await CallbackQuery.answer(
-            f"Yukki Disk Usage: {diske}%", show_alert=True
+            f"Takanashi Disk Usage: {diske}%", show_alert=True
         )
