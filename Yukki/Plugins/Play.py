@@ -151,7 +151,7 @@ async def startyuplay(_, CallbackQuery):
         )
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "Ini bukan untukmu! Cari Lagu Anda Sendiri.", show_alert=True
+            "⚠️ Anda tidak memiliki izin untuk melakukan pengoperasian ini\n\n💡 Jika anda berpikir memilikinya , silakan menggunakan perintah /play judul lagu", show_alert=True
         )
     await CallbackQuery.message.delete()
     title, duration_min, duration_sec, thumbnail = get_yt_info_id(videoid)
@@ -191,7 +191,7 @@ async def search_query_more(_, CallbackQuery):
     query, user_id = callback_request.split("|")
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "😀 Cari Musik Anda Sendiri. Anda tidak diperbolehkan menggunakan tombol ini!",
+            "⚠️ Anda tidak memiliki izin untuk melakukan pengoperasian ini\n\n💡 Jika anda berpikir memilikinya , silakan menggunakan perintah /play judul lagu",
             show_alert=True,
         )
     await CallbackQuery.answer("Searching More Results")
@@ -229,7 +229,7 @@ async def popat(_, CallbackQuery):
     i, query, user_id = callback_request.split("|")
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "Ini bukan untukmu! Cari Lagu Anda Sendiri", show_alert=True
+            "⚠️ Anda tidak memiliki izin untuk melakukan pengoperasian ini\n\n💡 Jika anda berpikir memilikinya , silakan menggunakan perintah /play judul lagu", show_alert=True
         )
     results = YoutubeSearch(query, max_results=10).to_dict()
     if int(i) == 1:
@@ -283,7 +283,7 @@ async def slider_query_results(_, CallbackQuery):
     what, type, query, user_id = callback_request.split("|")
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "😀 Cari Musik Anda Sendiri. Anda tidak diperbolehkan menggunakan tombol ini!",
+            "⚠️ Anda tidak memiliki izin untuk melakukan pengoperasian ini\n\n💡 Jika anda berpikir memilikinya , silakan menggunakan perintah /play judul lagu",
             show_alert=True,
         )
     what = str(what)
