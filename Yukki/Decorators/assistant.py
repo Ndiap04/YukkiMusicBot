@@ -5,14 +5,20 @@ from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
 from Yukki import (ASSID, ASSMENTION, ASSNAME, ASSUSERNAME, BOT_ID, app,
                    userbot)
 
+from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup)
+
+from Yukki.Inline import (sudo_pannel)
+
 
 def AssistantAdd(mystic):
     async def wrapper(_, message):
         try:
             b = await app.get_chat_member(message.chat.id, ASSID)
             if b.status == "kicked":
+            out = sudo_pannel()
                 return await message.reply_text(
-                    f"Akun Asisten[{ASSID}] Dibanned.\nUnban itu yang pertama menggunakan Bot Musik\n\nUsername: @{ASSUSERNAME}"
+                    f"⚠️ **Akun Assisten Terkena Banned Dalam Groups!**\n\n» Suruh Admin Untuk Unban @{ASSUSERNAME} || [{ASSID}] Dalam Groups.",
+                      reply_markup=InlineKeyboardMarkup(out[1]),
                 )
         except UserNotParticipant:
             if message.chat.username:
