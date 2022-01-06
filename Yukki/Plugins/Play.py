@@ -49,7 +49,7 @@ async def play(_, message: Message):
     url = get_url(message)
     if audio:
         mystic = await message.reply_text(
-            "🔄 Memproses Audio... Harap Tunggu!"
+            "🔄 **Memproses Audio**... Harap Tunggu!"
         )
 
         if audio.file_size > 157286400:
@@ -60,7 +60,7 @@ async def play(_, message: Message):
         duration_sec = audio.duration
         if (audio.duration) > DURATION_LIMIT:
             return await mystic.edit_text(
-                f"**Batas Durasi Terlampaui**\n\n**Durasi yang Diizinkan: **{DURATION_LIMIT_MIN} menit(s)\n**Durasi yang Diterima:** {duration_min} minute(s)"
+                f"✖️ **Batas Durasi Melebihi Batas!**\n\n**Durasi yang Diizinkan: **{DURATION_LIMIT_MIN} menit(s)\n**Durasi yang Diterima:** {duration_min} minute(s)"
             )
         file_name = (
             audio.file_unique_id
@@ -87,7 +87,7 @@ async def play(_, message: Message):
             mystic,
         )
     elif url:
-        mystic = await message.reply_text("🔄 Memproses URL... Harap Tunggu!")
+        mystic = await message.reply_text("🔄 **Memproses URL**... Harap Tunggu!")
         query = message.text.split(None, 1)[1]
         (
             title,
@@ -109,9 +109,9 @@ async def play(_, message: Message):
                 message.from_user.first_name, message.from_user.id, "abcd"
             )
             await message.reply_photo(
-                photo="Utils/Playlist.jpg",
+                photo="Utils/rikka_cover.jpg",
                 caption=(
-                    "✖️ **Perintah Yang Anda Masukan Salah!**\n\n✔️ /play [Nama Musik atau Tautan Youtube atau Balas Audio]\n\nJika Anda ingin memainkan Daftar Putar! Pilih salah satu dari Bawah."
+                    "**Lagu tidak ditemukan**. Coba cari dengan judul lagu yang lebih jelas, Klik `help` bila butuh bantuan."
                 ),
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
@@ -157,7 +157,7 @@ async def startyuplay(_, CallbackQuery):
     title, duration_min, duration_sec, thumbnail = get_yt_info_id(videoid)
     if duration_sec > DURATION_LIMIT:
         return await CallbackQuery.message.reply_text(
-            f"**Batas Durasi Terlampaui**\n\n**Durasi yang Diizinkan: **{DURATION_LIMIT_MIN} minute(s)\n**Durasi yang Diterima:** {duration_min} minute(s)"
+            f"✖️ **Batas Durasi Melebihi Batas!**\n\n**Durasi yang Diizinkan: **{DURATION_LIMIT_MIN} minute(s)\n**Durasi yang Diterima:** {duration_min} minute(s)"
         )
     await CallbackQuery.answer(f"Processing:- {title[:20]}", show_alert=True)
     mystic = await CallbackQuery.message.reply_text(
