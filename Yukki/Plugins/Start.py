@@ -20,7 +20,7 @@ from Yukki.Database import (add_nonadmin_chat, add_served_chat,
 from Yukki.Decorators.admins import ActualAdminCB
 from Yukki.Decorators.permission import PermissionCheck
 from Yukki.Inline import (custommarkup, dashmarkup, setting_markup,
-                          start_pannel, usermarkup, volmarkup, welcome_pannel, sudo_pannel, pemilik_pannel, settings_pannel)
+                          start_pannel, usermarkup, volmarkup, welcome_pannel, sudo_pannel, pemilik_pannel, settings_pannel, uptime_pannel)
 from Yukki.Utilities.ping import get_readable_time
 
 welcome_group = 2
@@ -34,7 +34,7 @@ __HELP__ = """
   •  **Perintah** : /help
   •  **Function** : Dapatkan Menu Pembantu Perintah.
 
-  •  **Perintah** : /settings {Hanya Dapat Digunakan Digrub}
+  •  **Perintah** : /settings [Hanya Dapat Digunakan Digrub]
   •  **Function** : Setting Bot.
 
 """
