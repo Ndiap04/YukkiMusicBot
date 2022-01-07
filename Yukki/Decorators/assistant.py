@@ -15,10 +15,8 @@ def AssistantAdd(mystic):
         try:
             b = await app.get_chat_member(message.chat.id, ASSID)
             if b.status == "kicked":
-            out = sudo_pannel()
                 return await message.reply_text(
                     f"⚠️ **Akun Assisten Terkena Banned Dalam Groups!**\n\n» Suruh Admin Untuk Unban @{ASSUSERNAME} || [{ASSID}] Dalam Groups.",
-                      reply_markup=InlineKeyboardMarkup(out[1]),
                 )
         except UserNotParticipant:
             if message.chat.username:
