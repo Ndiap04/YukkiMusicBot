@@ -74,7 +74,7 @@ async def on_stream_end(client: PyTgCalls, update: Update) -> None:
                     thumbnail,
                 ) = get_yt_info_id(afk)
                 mystic = await mystic.edit(
-                    f"**{MUSIC_BOT_NAME} Downloader**\n\n**Title:** {title[:50]}\n\n0% ▓▓▓▓▓▓▓▓▓▓▓▓ 100%"
+                    f"**Sedang Mengunduh**: {title[:50]}•\n\n0% ▓▓▓▓▓▓▓▓▓▓▓▓ 100%"
                 )
                 loop = asyncio.get_event_loop()
                 downloaded_file = await loop.run_in_executor(
@@ -106,7 +106,7 @@ async def on_stream_end(client: PyTgCalls, update: Update) -> None:
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),
                     caption=(
-                        f"🎥<b>__Started Playing:__ </b>[{title[:25]}](https://www.youtube.com/watch?v={afk}) \n👤**__Requested by:__** {mention}"
+                        f"🎥 **Saya Sekarang Memutar Lagu** »\n\n📝**Judul**: [{title[:25]}](https://www.youtube.com/watch?v={afk})\n🌟**Request**: {mention}"
                     ),
                 )
                 os.remove(thumb)
@@ -147,7 +147,7 @@ async def on_stream_end(client: PyTgCalls, update: Update) -> None:
                     chat_id,
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),
-                    caption=f"🎥<b>__Started Playing:__</b> {title} \n👤<b>__Requested by:__ </b> {mention}",
+                    caption=f"🎥 **Saya Sekarang Memutar Lagu** »\n\n📝**Judul**: [{title[:25]}](https://www.youtube.com/watch?v={afk})\n🌟**Request**: {mention}",
                 )
             await start_timer(
                 videoid,
