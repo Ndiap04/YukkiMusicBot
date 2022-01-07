@@ -199,7 +199,7 @@ async def admin_risghts(_, CallbackQuery):
                         duration_min,
                         duration_min,
                     )
-                    thumb = "Utils/Telegram.JPEG"
+                    thumb = "Utils/IMG_20211214_232837_619.jpg"
                     aud = 1
                 else:
                     _path_ = _path_ = (
@@ -357,7 +357,7 @@ async def play_playlist(_, CallbackQuery):
                 got_queue.append(to_append)
                 await music_on(chat_id)
                 await add_active_chat(chat_id)
-                cap = f"📝**Judul**: [{title[:25]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})👤**Request**: {CallbackQuery.from_user.mention}\n\n**Powered By**: [SuksesMakmur](t.me/SuksesMakmur)"
+                cap = f"📝**Judul**: [{title[:25]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})🌟**Request**: {CallbackQuery.from_user.mention}"
                 final_output = await CallbackQuery.message.reply_photo(
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),
