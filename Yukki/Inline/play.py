@@ -2,7 +2,7 @@ from pyrogram.types import (CallbackQuery, InlineKeyboardButton,
                             InlineKeyboardMarkup, InputMediaPhoto, Message)
 
 from Yukki import db_mem
-
+from config import SUPPORT_CHANNEL
 
 def url_markup(videoid, duration, user_id, query, query_type):
     buttons = [
