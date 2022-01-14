@@ -136,6 +136,7 @@ async def help_command(_, message):
 
 @app.on_message(filters.command("start") & filters.private)
 async def start_command(_, message):
+    await message.delete()
     if len(message.text.split()) > 1:
         name = (message.text.split(None, 1)[1]).lower()
         if name[0] == "s":
