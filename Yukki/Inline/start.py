@@ -4,6 +4,16 @@ from pyrogram.types import (CallbackQuery, InlineKeyboardButton,
 
 from Yukki import BOT_USERNAME
 
+def uptime_pannel():
+        buttons = [
+             [
+            InlineKeyboardButton(
+                text="🌟Uptime", callback_data="UPT"
+                )
+            ],
+        ]
+        return f"🎛  **This is {MUSIC_BOT_NAME}**", buttons
+
 def settings_pannel():
         buttons = [
              [
