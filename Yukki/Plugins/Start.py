@@ -97,7 +97,7 @@ async def settings(_, message: Message):
     await asyncio.gather(
         message.delete(),
         message.reply_text(
-            f"☠️ **Settings Bot** , Untuk Groups » {message.chat.title} ",
+            f"☠️ **Settings Bot**'s\nGroups » {message.chat.title}",
             reply_markup=InlineKeyboardMarkup(out[1]),
         ),
     )
