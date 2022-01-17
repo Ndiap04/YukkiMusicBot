@@ -56,7 +56,7 @@ async def start_stream(
         final_output = await CallbackQuery.message.reply_photo(
             photo=thumb,
             caption=(
-                f"💡 **Lagu Ditambahkan Keantrian** » `{position}`\n\n📝**Judul:** [{title[:25]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⏳**Durasi:** {duration_min}"
+                f"💡 ** {title[:25]} • Ditambahkan Keantrian** » `{position}`"
             ),
             reply_markup=InlineKeyboardMarkup(buttons),
         )
@@ -92,7 +92,7 @@ async def start_stream(
             videoid, CallbackQuery.from_user.id, duration_min, duration_min
         )
         await mystic.delete()
-        cap = f"📝**Judul** : [{title[:25]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n👤**Request** : {CallbackQuery.from_user.mention}\n\n🐼**Powered By** : [Team BottyCu](t.me/BottyCu)"
+        cap = f"🎥 **Sedang Memutar:** {title[:25]}•"
         final_output = await CallbackQuery.message.reply_photo(
             photo=thumb,
             reply_markup=InlineKeyboardMarkup(buttons),
