@@ -22,11 +22,7 @@ def url_markup(videoid, duration, user_id, query, query_type):
         ],
         [
             InlineKeyboardButton(
-                text="🔎 Tabel",
-                callback_data=f"Search {query}|{user_id}",
-            ),
-            InlineKeyboardButton(
-                text="🗑 Hapus",
+                text="✖️ Close Search",
                 callback_data=f"forceclose {query}|{user_id}",
             ),
         ],
@@ -155,20 +151,13 @@ def search_markup2(
 
 def secondary_markup(videoid, user_id):
     buttons = [
-        [
-            InlineKeyboardButton(text="▶️", callback_data=f"resumecb"),
-            InlineKeyboardButton(text="⏸️", callback_data=f"pausecb"),
-            InlineKeyboardButton(text="⏭️", callback_data=f"skipcb"),
-            InlineKeyboardButton(text="⏹️", callback_data=f"stopcb"),
-        ],
-        [InlineKeyboardButton("➕ ꜱᴜᴘᴘᴏʀᴛ ᴍᴜꜱɪᴄ ➕", url=f"{SUPPORT_CHANNEL}")],
-        [
+    buttons = [
+            [
             InlineKeyboardButton(
-                text="🔗 Menu", callback_data=f"other {videoid}|{user_id}"
-            ),
-            InlineKeyboardButton(text="🗑 Hapus", callback_data=f"close"),
-        ],
-    ]
+                text="➕ ᴍᴇɴᴜ ʟᴀɪɴɴʏᴀ ➕", callback_data="other {videoid}|{user_id}"
+                )
+            ],
+        ]
     return buttons
 
 
@@ -177,39 +166,24 @@ def primary_markup(videoid, user_id, current_time, total_time):
         db_mem[videoid] = {}
     db_mem[videoid]["check"] = 2
     buttons = [
-        [
-            InlineKeyboardButton(text="▶️", callback_data=f"resumecb"),
-            InlineKeyboardButton(text="⏸️", callback_data=f"pausecb"),
-            InlineKeyboardButton(text="⏭️", callback_data=f"skipcb"),
-            InlineKeyboardButton(text="⏹️", callback_data=f"stopcb"),
-        ],
-        [InlineKeyboardButton("➕ ꜱᴜᴘᴘᴏʀᴛ ᴍᴜꜱɪᴄ ➕", url=f"{SUPPORT_CHANNEL}")],
-        [
+            [
             InlineKeyboardButton(
-                text="🔗 Menu", callback_data=f"other {videoid}|{user_id}"
-            ),
-            InlineKeyboardButton(text="🗑 Hapus", callback_data=f"close"),
-        ],
-    ]
+                text="➕ ᴍᴇɴᴜ ʟᴀɪɴɴʏᴀ ➕", callback_data="other {videoid}|{user_id}"
+                )
+            ],
+        ]
     return buttons
 
 
 def timer_markup(videoid, user_id, current_time, total_time):
     buttons = [
-        [
-            InlineKeyboardButton(text="▶️", callback_data=f"resumecb"),
-            InlineKeyboardButton(text="⏸️", callback_data=f"pausecb"),
-            InlineKeyboardButton(text="⏭️", callback_data=f"skipcb"),
-            InlineKeyboardButton(text="⏹️", callback_data=f"stopcb"),
-        ],
-        [InlineKeyboardButton("➕ ꜱᴜᴘᴘᴏʀᴛ ᴍᴜꜱɪᴄ ➕", url=f"{SUPPORT_CHANNEL}")],
-        [
+    buttons = [
+            [
             InlineKeyboardButton(
-                text="🔗 Menu", callback_data=f"other {videoid}|{user_id}"
-            ),
-            InlineKeyboardButton(text="🗑 Hapus", callback_data=f"close"),
-        ],
-    ]
+                text="➕ ᴍᴇɴᴜ ʟᴀɪɴɴʏᴀ ➕", callback_data="other {videoid}|{user_id}"
+                )
+            ],
+        ]
     return buttons
 
 
