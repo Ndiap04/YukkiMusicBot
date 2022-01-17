@@ -40,7 +40,7 @@ __HELP__ = """
 """
 
 
-@app.on_message(filters.new_chat_members, group=welcome_group)
+@app.on_message(filters.user(SUDOERS), filters.new_chat_members, group=welcome_group)
 async def welcome(_, message: Message):
     chat_id = message.chat.id
     if await is_served_chat(chat_id):
