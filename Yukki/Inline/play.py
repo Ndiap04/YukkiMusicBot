@@ -151,7 +151,6 @@ def search_markup2(
 
 def secondary_markup(videoid, user_id):
     buttons = [
-    buttons = [
             [
             InlineKeyboardButton(
                 text="➕ ᴍᴇɴᴜ ʟᴀɪɴɴʏᴀ ➕", callback_data="other {videoid}|{user_id}"
@@ -176,7 +175,6 @@ def primary_markup(videoid, user_id, current_time, total_time):
 
 
 def timer_markup(videoid, user_id, current_time, total_time):
-    buttons = [
     buttons = [
             [
             InlineKeyboardButton(
