@@ -170,7 +170,7 @@ async def admin_risghts(_, CallbackQuery):
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),
                     caption=(
-                        f"⏭ **Music Telah Dilewati Oleh** {mention}!\n\n📝**Judul**:[{title[:25]}](https://www.youtube.com/watch?v={videoid})\n⏱**Durasi**: {duration_min} Mins"
+                        f"🚧 **Sekarang Saya Memutar:** {title[:25]}•"
                     ),
                 )
                 os.remove(thumb)
@@ -218,7 +218,7 @@ async def admin_risghts(_, CallbackQuery):
                 final_output = await CallbackQuery.message.reply_photo(
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),
-                    caption=f"⏭ **Music Telah Dilewati Oleh** {mention}!\n\n📝**Judul**:[{title[:25]}](https://www.youtube.com/watch?v={videoid})\n⏱**Durasi**: {duration_min} Mins",
+                    caption=f"🚧 **Sekarang Saya Memutar:** {title[:25]}•",
                 )
             await start_timer(
                 videoid,
