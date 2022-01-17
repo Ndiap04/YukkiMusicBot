@@ -5,14 +5,18 @@ from pyrogram.types import (CallbackQuery, InlineKeyboardButton,
 from Yukki import BOT_USERNAME
 
 def uptime_pannel():
-        buttons = [
-             [
-            InlineKeyboardButton(
-                text="🌟Uptime", callback_data="UPT"
-                )
-            ],
-        ]
-        return f"🎛  **This is {MUSIC_BOT_NAME}**", buttons
+    buttons = [
+        [
+            InlineKeyboardButton(text="✔️ Uptime", callback_data="UPT"),
+            InlineKeyboardButton(text="💾 Ram", callback_data="RAT"),
+        ],
+        [
+            InlineKeyboardButton(text="💻 Cpu", callback_data="CPT"),
+            InlineKeyboardButton(text="💽 Disk", callback_data="DIT"),
+        ],
+        [InlineKeyboardButton(text="✖️ Close Menu", callback_data="close")],
+    ]
+    return f"🔧  **{MUSIC_BOT_NAME} Settings**", buttons
 
 def settings_pannel():
         buttons = [
@@ -202,7 +206,7 @@ def private_panel():
         ]
         return f"🎛  **This is {MUSIC_BOT_NAME}**", buttons
 
-
+    
 def setting_markup():
     buttons = [
         [
@@ -212,15 +216,9 @@ def setting_markup():
         [
             InlineKeyboardButton(
                 text="👥 Authorized Users", callback_data="AU"
-            ),
-            InlineKeyboardButton(
-                text="💻 Dashboard", callback_data="Dashboard"
-            ),
+            )
         ],
-        [
-            InlineKeyboardButton(text="✖️ Close", callback_data="close"),
-            InlineKeyboardButton(text="🔙 Go Back", callback_data="okaybhai"),
-        ],
+        [InlineKeyboardButton(text="✖️ Close Settings", callback_data="close")],
     ]
     return f"🔧  **{MUSIC_BOT_NAME} Settings**", buttons
 
