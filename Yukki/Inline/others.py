@@ -31,7 +31,7 @@ def others_markup(videoid, user_id):
                 callback_data=f"pr_go_back_timer {videoid}|{user_id}",
             ),
             InlineKeyboardButton(
-                text="🗑 Hapus",
+                text="🗑 Close",
                 callback_data=f"close",
             )
         ],
