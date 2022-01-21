@@ -119,24 +119,11 @@ async def initiate_bot():
     console.print(f"\n[red]Stopping Bot")
 
 
-home_text_pm = f"""💞 Selamat datang Di**Takanashi Rika**!
-
-🎊 [Takanashi Rika](https://telegra.ph/file/d6d3661619ea6d3277ba3.jpg) memungkinkan  Anda memutar musik  pada  grup  melalui fitur video telegram yang baru !
-
-📝 **Cari tahu**  Semua perintah  bot  dan bagaimana mereka bekerja dengan mengklik tombol »  Command!
-
-**Powered By** : [SuksesMakmur](https://t.me/SuksesMakmur)"""
-
-
-@app.on_message(filters.command("help") & filters.private)
-async def help_command(_, message):
-    text, keyboard = await help_parser(message.from_user.mention)
-    await app.send_message(message.chat.id, text, reply_markup=keyboard)
+home_text_pm = f"""Saya Adalah Bot Music Khusus Untuk Grup , Kirim Command Digrup. """
 
 
 @app.on_message(filters.command("start") & filters.private)
 async def start_command(_, message):
-    await message.delete()
     if len(message.text.split()) > 1:
         name = (message.text.split(None, 1)[1]).lower()
         if name[0] == "s":
@@ -209,10 +196,8 @@ async def start_command(_, message):
                 parse_mode="markdown",
                 reply_markup=key,
             )
-    out = private_panel()
     return await message.reply_text(
         home_text_pm,
-        reply_markup=InlineKeyboardMarkup(out[1]),
     )
 
 
