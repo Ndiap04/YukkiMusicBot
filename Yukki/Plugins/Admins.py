@@ -152,7 +152,7 @@ async def admins(_, message: Message):
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),
                     caption=(
-                        f"💨 **Music Telah Dilewati Oleh**  {mention}!\n\n📝**Judul**: {title}\n⏱**Durasi**: {duration_min}"
+                        f"🚧 **Sekarang Saya Memutar**»  {title} ({duration_min})•"
                     ),
                 )
                 os.remove(thumb)
@@ -197,7 +197,7 @@ async def admins(_, message: Message):
                 final_output = await message.reply_photo(
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),
-                    caption=f"{mention} **Melewati Lagu Sebelumnya**!\n\n🎥 **Judul** : {title}\n⏱ **Durasi** : {duration_min}",
+                    caption=f"🚧 **Sekarang Saya Memutar**»  {title} ({duration_min})•",
                 )
             await start_timer(
                 videoid,
