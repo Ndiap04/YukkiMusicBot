@@ -21,14 +21,8 @@ def others_markup(videoid, user_id):
         ],
         [
             InlineKeyboardButton(
-                text="⬇️ Unduh Audio/Video",
+                text="⬇️ Unduh",
                 callback_data=f"audio_video_download {videoid}|{user_id}",
-            )
-        ],
-        [
-            InlineKeyboardButton(
-                text="⬅️ Kembali",
-                callback_data=f"pr_go_back_timer {videoid}|{user_id}",
             ),
             InlineKeyboardButton(
                 text="🗑 Close",
