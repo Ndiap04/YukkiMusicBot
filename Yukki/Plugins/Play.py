@@ -184,8 +184,10 @@ async def startyuplay(_, CallbackQuery):
     )
 
 
-@app.on_callback_query(filters.regex(pattern=r"Search"))
-async def search_query_more(_, CallbackQuery):
+@app.on_message(
+    filters.command(["search", f"play@{BOT_USERNAME}"]) & filters.group
+)
+async def search(_, message: Message):
     callback_data = CallbackQuery.data.strip()
     callback_request = callback_data.split(None, 1)[1]
     query, user_id = callback_request.split("|")
