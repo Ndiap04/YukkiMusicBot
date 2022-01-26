@@ -40,7 +40,7 @@ __HELP__ = """
 """
 
 
-@app.on_message(filters.user(SUDOERS), filters.new_chat_members, group=welcome_group)
+@app.on_message(filters.new_chat_members, group=welcome_group)
 async def welcome(_, message: Message):
     chat_id = message.chat.id
     if await is_served_chat(chat_id):
@@ -98,18 +98,6 @@ async def settings(_, message: Message):
         message.delete(),
         message.reply_text(
             f"⚙ **Settings Bot**'s\nGroups » {message.chat.title}",
-            reply_markup=InlineKeyboardMarkup(out[1]),
-        ),
-    )
-
-@app.on_message(filters.command(["help"]) & filters.group)
-@PermissionCheck
-async def useradd(_, message: Message):
-    out = start_pannel()
-    await asyncio.gather(
-        message.delete(),
-        message.reply_text(
-            f"**Terima Kasih Telah Memasukkan Saya Digrub {message.chat.title}**!\n`Silakan Lihat Perintah Apa Saja Yang Dapat Digunakan!`",
             reply_markup=InlineKeyboardMarkup(out[1]),
         ),
     )
