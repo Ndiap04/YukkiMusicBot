@@ -147,7 +147,7 @@ async def on_stream_end(client: PyTgCalls, update: Update) -> None:
                     chat_id,
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),
-                    caption=f"🎥 **Saya Sekarang Memutar Lagu** »\n\n📝**Judul**: [{title[:25]}](https://www.youtube.com/watch?v={afk})\n🌟**Request**: {mention}",
+                    caption=f"🎥 **Saya Sekarang Memutar Lagu** » {title[:25]} ({mention}) ×",
                 )
             await start_timer(
                 videoid,
