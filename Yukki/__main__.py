@@ -119,7 +119,32 @@ async def initiate_bot():
     console.print(f"\n[red]Stopping Bot")
 
 
-home_text_pm = f"""Saya Adalah Bot Music Khusus Untuk Grup , Kirim Command Digrup. """
+home_text_pm = f"""**Halo!**
+Saya akan membantu memutar musik dalam groups.
+bot dapat bekerja baik dalam pesan pribadi maupun dalam grup
+
+ **Perintah Yang Tersedia:**
+/start (Memulai Bot) | (Groups & Private Chat Only)
+/play (Judul Lagu) | (Groups Only)
+/playlist (Memutar Lagu Dari Playlist) | (Groups Only)
+/ping (Bot Aktif Atau Tidak) | (Groups & Private Chat Only)
+/song (Mengunduh Lagu Dari YouTube) | (Groups Only)
+/settings (Settings Bot) | (Groups Only)
+
+ **Perintah Lainnya:**
+/idol (Idol Name) | (Groups & Private Chat Only)
+/groups (groups name) | (Groups & Private Chat Only)
+
+Usage:
+/idol Jisoo - BLACKPINK
+
+ **Beli Kopi Untuk Pengembang:**
+t.me/pikyus1
+
+**Blog Pengembangan** : @fckyoupeople1
+
+Thanks you @pikyus1
+ """
 
 
 @app.on_message(filters.command("start") & filters.private)
@@ -175,7 +200,7 @@ async def start_command(_, message):
 ⏰**Published Time:** {published}
 🎥**Channel Name:** {channel}
 
-**Powered By** : [SuksesMakmur](t.me/SuksesMakmur)"""
+**Powered By** : [SuksesMakmur](t.me/fckyoupeople1)"""
             key = InlineKeyboardMarkup(
                 [
                     [
