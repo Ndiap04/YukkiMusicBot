@@ -21,12 +21,12 @@ def others_markup(videoid, user_id):
         ],
         [
             InlineKeyboardButton(
-                text="⬇️ Unduh",
-                callback_data=f"audio_video_download {videoid}|{user_id}",
+                text="⬇️ Get Audio",
+                callback_data=f"gets audio|{videoid}|{user_id}",
             ),
             InlineKeyboardButton(
-                text="🗑 Close",
-                callback_data=f"close",
+                text="⬇️ Get Video",
+                callback_data=f"gets video|{videoid}|{user_id}",
             )
         ],
     ]
