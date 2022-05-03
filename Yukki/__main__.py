@@ -147,7 +147,7 @@ Thanks you @pikyus1
  """
 
 
-@app.on_message(filters.command("start") & filters.private)
+@app.on_message(filters.command("8273893") & filters.private)
 async def start_command(_, message):
     if len(message.text.split()) > 1:
         name = (message.text.split(None, 1)[1]).lower()
